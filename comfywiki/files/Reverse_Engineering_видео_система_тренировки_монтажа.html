@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse Engineering видео: система тренировки монтажа</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.7;
+            color: #ffffff;
+            background: #0a0e27;
+            background-image:
+                linear-gradient(rgba(79, 172, 254, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(79, 172, 254, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(10, 14, 27, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(79, 172, 254, 0.1);
+            overflow: hidden;
+            animation: fadeIn 0.6s ease-in;
+            border: 1px solid rgba(79, 172, 254, 0.3);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .header {
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.2) 0%, rgba(79, 172, 254, 0.1) 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 2px solid rgba(79, 172, 254, 0.4);
+            box-shadow: 0 0 30px rgba(79, 172, 254, 0.2);
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(79, 172, 254, 0.15) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 0 20px rgba(79, 172, 254, 0.6);
+        }
+        .header p { font-size: 1.1em; opacity: 0.95; position: relative; z-index: 1; }
+        .guild-link {
+            display: inline-block;
+            color: #4facfe;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.3em;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+        .guild-link:hover { color: #ffffff; text-shadow: 0 0 10px rgba(79, 172, 254, 0.6); }
+        .content { padding: 50px 40px; }
+        h2 {
+            color: #ffffff;
+            font-size: 2em;
+            margin: 40px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(79, 172, 254, 0.4);
+            position: relative;
+            font-weight: 700;
+        }
+        h2::before { content: '▸'; color: #4facfe; margin-right: 10px; }
+        h3 { color: #ffffff; font-size: 1.5em; margin: 25px 0 15px 0; font-weight: 600; }
+        p { margin-bottom: 15px; text-align: justify; font-size: 1.05em; color: rgba(255, 255, 255, 0.9); }
+        ul { margin: 15px 0; padding-left: 30px; }
+        ol { margin: 15px 0; padding-left: 30px; }
+        li { margin-bottom: 10px; color: rgba(255, 255, 255, 0.9); }
+        strong { color: #4facfe; }
+        em { color: rgba(255, 255, 255, 0.8); font-style: italic; }
+        .quote {
+            background: rgba(79, 172, 254, 0.1);
+            border-left: 4px solid #4facfe;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .level-section, .phase-section, .technique-card, .practice-card, .metric-card {
+            background: rgba(10, 14, 27, 0.8);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 2px solid rgba(79, 172, 254, 0.35);
+            box-shadow: 0 0 20px rgba(79, 172, 254, 0.12);
+        }
+        .level-section h3 {
+            color: #4facfe;
+            margin-top: 0;
+        }
+        .step-grid, .technique-grid, .practice-grid, .metric-grid, .library-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin: 20px auto;
+            max-width: 720px;
+        }
+        .step-card, .library-card {
+            background: rgba(10, 14, 27, 0.7);
+            border: 1px solid rgba(79, 172, 254, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .step-card h4, .technique-card h4, .library-card h4 {
+            color: #4facfe;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .highlight-list li { list-style-type: '– '; padding-left: 5px; }
+        pre {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            color: #9be5ff;
+            font-size: 0.95em;
+            overflow-x: auto;
+        }
+        .task-box {
+            background: rgba(10, 14, 27, 0.8);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border: 3px solid rgba(79, 172, 254, 0.5);
+            box-shadow: 0 8px 16px rgba(79, 172, 254, 0.3);
+        }
+        .task-box h3 {
+            color: #ffffff;
+            margin-top: 0;
+        }
+        .task-box a {
+            color: #4facfe;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 2px solid #4facfe;
+            transition: all 0.3s ease;
+        }
+        .task-box a:hover {
+            color: #4facfe;
+            border-bottom-color: #4facfe;
+            text-shadow: 0 0 10px rgba(79, 172, 254, 0.6);
+        }
+        .sources-section {
+            background: rgba(10, 14, 27, 0.8);
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 12px;
+            border: 2px solid rgba(79, 172, 254, 0.4);
+            box-shadow: 0 0 20px rgba(79, 172, 254, 0.15);
+        }
+        .sources-section h3 {
+            color: #ffffff;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
+        .sources-category { margin-bottom: 25px; }
+        .sources-category-title {
+            color: #4facfe;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .sources-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sources-list li {
+            margin: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        .sources-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #4facfe;
+        }
+        .sources-list a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+        .sources-list a:hover {
+            color: #4facfe;
+            border-bottom-color: #4facfe;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(10, 14, 27, 0.8);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9em;
+            border-top: 1px solid rgba(79, 172, 254, 0.3);
+        }
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.8em; }
+            .content { padding: 30px 20px; }
+            h2 { font-size: 1.5em; }
+            .step-grid, .technique-grid, .practice-grid, .metric-grid, .library-grid { grid-template-columns: 1fr; max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Reverse Engineering видео: система тренировки монтажа</h1>
+            <p>Практическая программа для развития ритма, стиля и мышечной памяти</p>
+        </div>
+
+        <div class="content">
+            <p style="text-align: center; margin-bottom: 30px;">
+                <a href="https://aiguild.ru/" target="_blank" class="guild-link">Гильдия</a>
+            </p>
+
+            <h2>Философия метода</h2>
+            <p>Reverse engineering видео повторяет подход музыкантов, художников и программистов: разобрать шедевр на детали, чтобы почувствовать, как он устроен. Монтажёры, которые системно деконструируют чужие ролики, быстрее ловят ритм, понимают структуру и цепляют зрителя столь же уверенно, как автор оригинала. Такой тренинг не про плагиат, а про наработку моторики и визуального насмотренности — вы копируете для себя, чтобы потом создавать иначе.</p>
+            <ul class="highlight-list">
+                <li>Аналогично музыкантам, которые переписывают соло нота в ноту.</li>
+                <li>Как художники, делающие копии классиков, чтобы понять мазок и свет.</li>
+                <li>Как разработчики, читающие чужой код, чтобы уловить архитектуру.</li>
+            </ul>
+            <p>Копирование «один в один» в приватных условиях развивает мышечную память, помогает увидеть микродетали и даёт легальный способ перенести лучшие приёмы в собственный арсенал.</p>
+
+            <h2>Цели упражнений</h2>
+            <ul>
+                <li>Поймать timing и ритм: сколько кадров занимает каждый beat и почему.</li>
+                <li>Научиться видеть структуру ролика — от хука до кульминации.</li>
+                <li>Отточить muscle memory в NLE: горячие клавиши и макросы на автомате.</li>
+                <li>Собрать библиотеку техник, которые можно «позаимствовать» без нарушения авторских прав.</li>
+            </ul>
+
+            <h2>Уровень 1 — Точная копия</h2>
+            <div class="level-section">
+                <h3>Shot-for-Shot Remake</h3>
+                <p>Выберите вирусный ролик и воспроизведите каждый кадр, переход и эффект. Эта дисциплина заставляет замедлиться, заметить доли секунд и выстраивает «внутренний метроном» монтажёра.</p>
+                <div class="step-grid">
+                    <div class="step-card">
+                        <h4>Шаг 1. Скачивание и анализ</h4>
+                        <p>Загрузите оригинал с помощью инструментов вроде yt-dlp или 4K Video Downloader. Для командной строки подойдёт команда:</p>
+                        <pre><code>yt-dlp "https://example.com/video" -f best -o "original.mp4"</code></pre>
+                        <p>Держите исходник локально, чтобы вернуться к нему в любой момент.</p>
+                    </div>
+                    <div class="step-card">
+                        <h4>Шаг 2. Frame-by-Frame</h4>
+                        <p>Откройте ролик в Premiere, CapCut или DaVinci, включите покадровый просмотр и считайте длительность каждого шота. Создайте таблицу с колонками «Timecode / Action / Frames / Transition / Notes». DaVinci Resolve может помочь автоматическим Scene Cut Detection, но ручной разбор прокачивает внимательность.</p>
+                    </div>
+                    <div class="step-card">
+                        <h4>Шаг 3. Идентификация элементов</h4>
+                        <ul>
+                            <li>Визуал: движение камеры, тип перехода, цветокоррекция, эффекты.</li>
+                            <li>Аудио: биты музыки, ритм озвучки, звуковые акценты.</li>
+                            <li>Текст: стиль типографики, длительность показа, анимация.</li>
+                            <li>Композиция: правило третей, баланс фона и основного объекта.</li>
+                        </ul>
+                    </div>
+                    <div class="step-card">
+                        <h4>Шаг 4. Шаблон таймлайна</h4>
+                        <p>Создайте пустой проект-шаблон: плейсхолдеры для каждого шота, точные длительности и маркеры под ключевые события, переходы и удары музыки. Получается «скелет» без содержимого.</p>
+                    </div>
+                    <div class="step-card">
+                        <h4>Шаг 5. Наполнение</h4>
+                        <ul>
+                            <li><strong>A. Точная копия:</strong> повторите эффекты один к одному.</li>
+                            <li><strong>B. Свой контент:</strong> вставьте личные клипы, сохранив ритм.</li>
+                            <li><strong>C. Новая тема:</strong> примените структуру к другому сюжету.</li>
+                        </ul>
+                    </div>
+                    <div class="step-card">
+                        <h4>Шаг 6. Сравнение бок о бок</h4>
+                        <p>Положите оригинал и свою версию в одном таймлайне, синхронизируйте старт и сравните переходы, ритм и эффекты. Цель — добиться ≥90% совпадения, отмечая расхождения тайм-кодами.</p>
+                    </div>
+                </div>
+                <div class="quote">«Рекомпозиция заставляет работать быстро и точно: вы буквально перепрошиваете мозг на новый уровень монтажа».</div>
+            </div>
+
+            <h2>Уровень 2 — Техника декомпозиция</h2>
+            <p>Steal the Technique — это охота за конкретными приёмами. Вы вырезаете один эффект из чужого ролика, разбираете его покадрово и повторяете десятки раз, пока руки не начинают делать это автоматически.</p>
+            <div class="technique-grid">
+                <div class="technique-card">
+                    <h4>Speed Ramps</h4>
+                    <ul>
+                        <li>Зафиксируйте, от какой скорости и к какой идёт изменение.</li>
+                        <li>Сколько ключевых точек в графике скорости.</li>
+                        <li>Форма кривой (ease-in/ease-out).</li>
+                    </ul>
+                    <p>В Premiere: через Speed/Duration добавьте ключевые кадры, отрегулируйте кривые в Graph Editor и повторите на разных футажах.</p>
+                </div>
+                <div class="technique-card">
+                    <h4>Text Animations</h4>
+                    <ul>
+                        <li>Начальные позиции, масштаб, прозрачность.</li>
+                        <li>Тип анимации (bounce, shake, stretch).</li>
+                        <li>Время появления/исчезновения.</li>
+                    </ul>
+                    <p>Создайте 20 вариаций в Essential Graphics, используя Position/Scale/Opacity и выражения для дополнительной динамики.</p>
+                </div>
+                <div class="technique-card">
+                    <h4>Transition Cuts</h4>
+                    <p>Whip-pan, match-cut, «невидимые» резы. Смотрите, где происходит рез, сколько motion blur в кадре и под какой звук он спрятан. Потренируйтесь на 10 парах клипов.</p>
+                </div>
+                <div class="technique-card">
+                    <h4>Color Grading Styles</h4>
+                    <p>Сделайте скриншот ключевого кадра, изучите цветовые колёса в Photoshop/Lightroom и воспроизведите LUT в Lumetri. Сохраните пресет, чтобы использовать в следующих проектах.</p>
+                </div>
+                <div class="technique-card">
+                    <h4>Rhythm Patterns</h4>
+                    <p>Отмечайте, на какие доли бита приходятся резы. Сначала рез каждые 4 удара, затем 2 и 1. Тренируйтесь с метрономом, чтобы телу было привычно резать под музыку.</p>
+                </div>
+            </div>
+
+            <h2>Уровень 3 — Стиль адаптация</h2>
+            <div class="level-section">
+                <h3>Style Transfer</h3>
+                <p>Выберите автора с ярким почерком (MrBeast, Peter McKinnon, MKBHD, Casey Neistat и др.) и создайте «библию стиля» — набор правил по резам, переходам, цвету, тексту и аудио. Неделя 1 — повторяете стиль без отклонений, неделя 2 — переключаетесь на другой стиль, неделя 3 — смешиваете элементы и формируете собственный гибрид.</p>
+                <ul>
+                    <li>Распишите среднюю частоту резов и допустимые типы переходов.</li>
+                    <li>Определите LUT, контраст и насыщенность, характерные для автора.</li>
+                    <li>Задайте параметры текста: шрифт, размер, позицию, анимацию.</li>
+                    <li>Подберите тип звука: жанр музыки, плотность звуковых эффектов, темп речи.</li>
+                </ul>
+                <p>В результате появится чек-лист, по которому можно собирать ролики в одном стиле и осознанно комбинировать техники.</p>
+            </div>
+
+            <h2>Уровень 4 — Жанровое мастерство</h2>
+            <div class="phase-section">
+                <h3>Работа с форматами</h3>
+                <ul>
+                    <li><strong>How-to / Tutorial:</strong> Hook (0–3 сек) → Проблема → Решение → Шаги → Результат. Используйте шаблон проекта с маркерами для каждой секции.</li>
+                    <li><strong>Before/After:</strong> Короткое «Before», нарастающее напряжение, эффектный reveal, процесс, финальное сравнение. Тренируйте wipe и split-screen переходы.</li>
+                    <li><strong>Storytelling:</strong> Трёхактная структура даже в минутном ролике: герой, конфликт, развязка. Играйте скоростью резов и уровнями аудио для эмоционального воздействия.</li>
+                </ul>
+                <p>Соберите 20–30 референсов по каждому жанру и воспроизведите структуру с собственным материалом.</p>
+            </div>
+
+            <h2>Продвинутые техники обучения</h2>
+            <div class="practice-grid">
+                <div class="practice-card">
+                    <h4>No Audio Challenge</h4>
+                    <p>Соберите ролик, который понятен без звука. Усильте визуальные подсказки: текстовые подсказки, стрелки, пиктограммы.</p>
+                </div>
+                <div class="practice-card">
+                    <h4>Remake Marathon</h4>
+                    <p>30 роликов за 30 дней: 10 технических, 10 развлекательных, 10 сторителлинговых. Ограничение — максимум 2 часа на ролик, главное — объём.</p>
+                </div>
+                <div class="practice-card">
+                    <h4>Ограничения-челленджи</h4>
+                    <p>Поставьте рамки: «ровно 5 резов», «без переходов», «единый цвет», «только текст». Ограничения заставляют искать новые приёмы.</p>
+                </div>
+                <div class="practice-card">
+                    <h4>Разборы с коллегами</h4>
+                    <p>Соберите мини-группу, выберите один референс, каждый делает свой breakdown, затем обсуждаете находки. Это расширяет взгляд на те же материалы.</p>
+                </div>
+            </div>
+
+            <h2>Библиотека для изучения</h2>
+            <div class="library-grid">
+                <div class="library-card">
+                    <h4>High-Performance Shorts</h4>
+                    <p>Zack D. Films, Khaby Lame, Marcus DiPaola — тренируйтесь ловить хук в первые полсекунды и удерживать внимание.</p>
+                </div>
+                <div class="library-card">
+                    <h4>Artistic / Cinematic</h4>
+                    <p>Brandon Li, Watchtower of Turkey, Mango Street — работайте над композицией, цветом и плавностью движения.</p>
+                </div>
+                <div class="library-card">
+                    <h4>Educational / Tutorial</h4>
+                    <p>Ali Abdaal, MKBHD, Veritasium — учитесь структурировать сложные темы просто и визуально.</p>
+                </div>
+                <div class="library-card">
+                    <h4>Comedy / Entertainment</h4>
+                    <p>Daniel LaBelle, Gus Johnson, CalebCity — отрабатывайте комедийный тайминг и работу с мимикой.</p>
+                </div>
+            </div>
+
+            <h2>Система ежедневной практики</h2>
+            <div class="phase-section">
+                <h3>Распорядок</h3>
+                <ul>
+                    <li><strong>Утро (30 мин):</strong> 10 минут анализа трёх шортсов + 20 минут дрилла новой техники.</li>
+                    <li><strong>Вечер (20 мин):</strong> 10 минут декомпозиции завтрашнего референса + 10 минут рефлексии (что получилось, что улучшить).</li>
+                    <li><strong>Выходные (2 часа):</strong> Полное воссоздание сложного ролика, сравнение с оригиналом, фиксация инсайтов.</li>
+                </ul>
+                <p>Сосредоточьтесь на повторяемости: пусть проекты будут маленькими, но ежедневными. Так навыки закрепляются быстрее.</p>
+            </div>
+
+            <h2>Метрики прогресса</h2>
+            <div class="metric-grid">
+                <div class="metric-card">
+                    <h4>Трекер</h4>
+                    <p>Заведите таблицу с колонками: дата, № ролика, ссылка на оригинал, стиль, время, сложность (1–10), качество (1–10), заметки.</p>
+                </div>
+                <div class="metric-card">
+                    <h4>Цели по неделям</h4>
+                    <p>Неделя 1: качество ≥5/10, время ≤3 ч. Неделя 2: ≥6/10, ≤2 ч. Неделя 3: ≥7/10, ≤1.5 ч. Неделя 4: ≥8/10, ≤1 ч.</p>
+                </div>
+                <div class="metric-card">
+                    <h4>Навыковая карта</h4>
+                    <p>Отмечайте освоенные блоки: переходы (hard cut, whip, match), эффекты (speed ramp, glitch), цвет (LUT, skin tone), текст (lower thirds, kinetic), звук (бит, саунд-дизайн).</p>
+                </div>
+            </div>
+
+            <h2>Фокус на челлендж</h2>
+            <div class="phase-section">
+                <h3>План на 7 дней до марафона</h3>
+                <ul>
+                    <li>День –7: Установка ПО, сбор 10 референсов.</li>
+                    <li>День –6: 5 простых роликов с жёсткими резами и текстом.</li>
+                    <li>День –5: 3 ролика на плавные переходы и speed ramps.</li>
+                    <li>День –4: 3 ролика, синхронизированных по биту.</li>
+                    <li>День –3: 3 ролика с разными анимациями текста.</li>
+                    <li>День –2: Оттачивание цветокоррекции и экспорта.</li>
+                    <li>День –1: Полный 30-секундный ролик за 1 час с использованием всех техник.</li>
+                </ul>
+                <p>Во время челленджа держите рутину: утром анализ, вечером практика. Цель — к 30-му дню сократить время монтажа до 30–45 минут на ролик без потери качества.</p>
+            </div>
+
+            <h2>Легальность и этика</h2>
+            <ul>
+                <li>Копируйте структуру и приёмы только для личного обучения, не публикуйте точные копии.</li>
+                <li>Используйте чужие футажи как референс, но публикуйте свой контент с указанием вдохновения при необходимости.</li>
+                <li>Цель reverse engineering — понять механику и адаптировать её, а не выдавать чужие работы за свои.</li>
+            </ul>
+
+            <div class="task-box">
+                <h3>‼️ Задание для участников</h3>
+                <p>Поделитесь в <a href="https://t.me/c/2338065673/11434" target="_blank">Чате «Заработок на ИИ и Контенте»</a>:</p>
+                <ol>
+                    <li>Какой ролик вы возьмёте для reverse engineering на этой неделе? Скиньте ссылку и объясните, чем он вас зацепил.</li>
+                    <li>Какой элемент планируете разобрать в первую очередь (ритм, текст, цвет, переход)? Почему именно он тормозит прогресс.</li>
+                    <li>После повторения: какой приём вы добавите в свою «библию стиля»? Опишите, где будете использовать его в ближайшем проекте.</li>
+                </ol>
+                <p>Цель — превратить анализ в действие и обменяться находками, чтобы ускорить тренировку всей команды.</p>
+            </div>
+
+            <div class="sources-section">
+                <h3>Источники</h3>
+                <p style="margin-bottom: 20px; color: rgba(255, 255, 255, 0.8);">Профессиональные обсуждения видеомонтажа, практические гайды по ускорению постпродакшена и обратной инженерии коротких роликов.</p>
+
+                <div class="sources-category">
+                    <div class="sources-category-title">Практика монтажёров</div>
+                    <ul class="sources-list">
+                        <li><a href="https://www.reddit.com/r/VideoEditing/comments/ituwp3/how_can_i_take_my_editing_to_the_next_level/" target="_blank">How can I take my editing to the next level?</a></li>
+                    </ul>
+                </div>
+
+                <div class="sources-category">
+                    <div class="sources-category-title">Разбор чужих роликов</div>
+                    <ul class="sources-list">
+                        <li><a href="https://www.eoshd.com/comments/topic/60468-analysing-other-peoples-edits/" target="_blank">Analysing other people's edits — EOSHD Forum</a></li>
+                    </ul>
+                </div>
+
+                <div class="sources-category">
+                    <div class="sources-category-title">Упражнения для скорости</div>
+                    <ul class="sources-list">
+                        <li><a href="https://www.videomaker.com/how-to/editing/editing-technique/6-exercises-to-become-faster-at-video-editing/" target="_blank">6 exercises to become faster at video editing</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 Гильдия AI</p>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,15 @@
+{
+  "hf_models": {
+    "Huihui Qwen3 VL 8B Instruct Abliterated": {
+      "repo_id": "huihui-ai/Huihui-Qwen3-VL-8B-Instruct-abliterated",
+      "model_type": "qwen3-vl",
+      "default": false,
+      "quantized": false,
+      "vram_requirement": {
+        "4bit": 6,
+        "8bit": 10,
+        "full": 16
+      }
+    }
+  }
+}

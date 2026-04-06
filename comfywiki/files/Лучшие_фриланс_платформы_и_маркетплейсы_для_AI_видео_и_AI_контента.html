@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лучшие фриланс-платформы и маркетплейсы для AI-видео и AI-контента</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.7;
+            color: #ffffff;
+            background: #0a0e27;
+            background-image:
+                linear-gradient(rgba(79, 172, 254, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(79, 172, 254, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(10, 14, 27, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(79, 172, 254, 0.1);
+            overflow: hidden;
+            animation: fadeIn 0.6s ease-in;
+            border: 1px solid rgba(79, 172, 254, 0.3);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .header {
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.2) 0%, rgba(79, 172, 254, 0.1) 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 2px solid rgba(79, 172, 254, 0.4);
+            box-shadow: 0 0 30px rgba(79, 172, 254, 0.2);
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(79, 172, 254, 0.15) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 0 20px rgba(79, 172, 254, 0.6);
+        }
+        .header p { font-size: 1.1em; opacity: 0.95; position: relative; z-index: 1; }
+        .guild-link {
+            display: inline-block;
+            color: #4facfe;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.3em;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+        .guild-link:hover { color: #ffffff; text-shadow: 0 0 10px rgba(79, 172, 254, 0.6); }
+        .content { padding: 50px 40px; }
+        h2 {
+            color: #ffffff;
+            font-size: 2em;
+            margin: 40px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(79, 172, 254, 0.4);
+            position: relative;
+            font-weight: 700;
+        }
+        h2::before { content: '▸'; color: #4facfe; margin-right: 10px; }
+        h3 { color: #ffffff; font-size: 1.5em; margin: 30px 0 15px 0; font-weight: 600; }
+        p { margin-bottom: 15px; text-align: justify; font-size: 1.05em; color: rgba(255, 255, 255, 0.9); }
+        .platform-card {
+            background: rgba(10, 14, 27, 0.8);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 2px solid rgba(79, 172, 254, 0.4);
+            box-shadow: 0 0 20px rgba(79, 172, 254, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .platform-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(79, 172, 254, 0.4); }
+        .platform-card h3 {
+            color: #4facfe;
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .platform-card h3::before { content: '•'; margin-right: 10px; font-size: 1.2em; color: #4facfe; }
+        .platform-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .info-item {
+            background: rgba(10, 14, 27, 0.6);
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 3px solid #4facfe;
+        }
+        .info-item strong {
+            color: #4facfe;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+        .info-item span {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95em;
+        }
+        .price-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.3), rgba(79, 172, 254, 0.2));
+            color: #ffed4e;
+            padding: 6px 14px;
+            border-radius: 18px;
+            font-weight: 600;
+            margin: 0 6px 6px 0;
+            border: 1px solid rgba(255, 237, 78, 0.4);
+            font-size: 0.9em;
+        }
+        .pros-cons {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .pros, .cons {
+            background: rgba(10, 14, 27, 0.6);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .pros { border-left: 3px solid #4ade80; }
+        .cons { border-left: 3px solid #f87171; }
+        .pros h4, .cons h4 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .pros h4 { color: #4ade80; }
+        .cons h4 { color: #f87171; }
+        .pros ul, .cons ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .pros li, .cons li {
+            margin-bottom: 8px;
+            font-size: 0.95em;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .task-box {
+            background: rgba(10, 14, 27, 0.8);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border: 3px solid rgba(79, 172, 254, 0.5);
+            box-shadow: 0 8px 16px rgba(79, 172, 254, 0.3);
+        }
+        .task-box h3 {
+            color: #ffffff;
+            margin-top: 0;
+        }
+        .task-box a {
+            color: #4facfe;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 2px solid #4facfe;
+            transition: all 0.3s ease;
+        }
+        .task-box a:hover {
+            color: #4facfe;
+            border-bottom-color: #4facfe;
+            text-shadow: 0 0 10px rgba(79, 172, 254, 0.6);
+        }
+        .sources-section {
+            background: rgba(10, 14, 27, 0.8);
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 12px;
+            border: 2px solid rgba(79, 172, 254, 0.4);
+            box-shadow: 0 0 20px rgba(79, 172, 254, 0.15);
+        }
+        .sources-section h3 {
+            color: #ffffff;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
+        .sources-category { margin-bottom: 25px; }
+        .sources-category-title {
+            color: #4facfe;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .sources-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sources-list li {
+            margin: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        .sources-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #4facfe;
+        }
+        .sources-list a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+        .sources-list a:hover {
+            color: #4facfe;
+            border-bottom-color: #4facfe;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(10, 14, 27, 0.8);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9em;
+            border-top: 1px solid rgba(79, 172, 254, 0.3);
+        }
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.8em; }
+            .content { padding: 30px 20px; }
+            h2 { font-size: 1.5em; }
+            .platform-card { padding: 20px; }
+            .platform-info { grid-template-columns: 1fr; }
+            .pros-cons { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Лучшие фриланс-платформы и маркетплейсы для AI-видео и AI-контента</h1>
+            <p>Обзор площадок для заработка на AI-видео и контенте</p>
+        </div>
+
+        <div class="content">
+            <p style="text-align: center; margin-bottom: 30px;">
+                <a href="https://aiguild.ru/" target="_blank" class="guild-link">Гильдия</a>
+            </p>
+
+            <div class="platform-card">
+                <h3>Kwork (kwork.ru)</h3>
+                <p>Российский фриланс-маркетплейс готовых услуг (гигов) по фиксированной цене. Подходит практически для любых задач (дизайн, видео, тексты), в том числе «ИИ-генерации» видео и анимации (есть категория «ИИ-генерация видео»). Начальная стоимость услуг — от 500 ₽; простые задания часто стоят 500–1000 ₽, более сложные – несколько тысяч. Заказы могут поступать уже в первые дни после публикации кворка: платформа первые 3 дня продвигает новые гиги в ТОП и помогает новичкам получить первые отклики.</p>
+                <div class="platform-info">
+                    <div class="info-item">
+                        <strong>Подходит для AI-контента</strong>
+                        <span>Да</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Ставки</strong>
+                        <span>От 500 ₽ (минимум), обычно 1–5 тыс. ₽ за короткое видео или ролик</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Скорость заказов</strong>
+                        <span>Высокая при удачном оформлении услуги (быстрый отклик новичкам)</span>
+                    </div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ Плюсы</h4>
+                        <ul>
+                            <li>Для новичков: отсутствие платы за размещение и готовая аудитория заказчиков</li>
+                            <li>Для профи: прозрачная система рейтинга и безопасная сделка</li>
+                            <li>Для опытных исполнителей: позволяет получать стабильный доход</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>❌ Минусы</h4>
+                        <ul>
+                            <li>Высокая конкуренция и комиссия 20%</li>
+                            <li>Сложнее выделиться среди множества гигов</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="platform-card">
+                <h3>FL.ru</h3>
+                <p>Крупнейшая отечественная биржа фриланса. Универсальная площадка для проектной работы: заказчик публикует проект, фрилансеры подают заявки. Есть разделы для AI/видео/аудио (например, «AI – искусственный интеллект», «Аудио/видео/фото»).</p>
+                <div class="platform-info">
+                    <div class="info-item">
+                        <strong>Подходит для AI-контента</strong>
+                        <span>Да (требования разнятся в зависимости от проекта)</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Ставки</strong>
+                        <span>Очень разные – от нескольких тысяч рублей за простой ролик до десятков тысяч за сложную задачу (зачастую по почасовой ставке)</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Скорость заказов</strong>
+                        <span>Умеренная – проекты публикуются постоянно, но конкуренция высокая, новичку без портфолио придётся снижать цену</span>
+                    </div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ Плюсы</h4>
+                        <ul>
+                            <li>Большой объем заказов и надёжная безопасная сделка</li>
+                            <li>Для продвинутых: шанс найти крупные проекты</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>❌ Минусы</h4>
+                        <ul>
+                            <li>Сложно пробиться без опыта</li>
+                            <li>Новичкам нужно терпение и акцент на портфолио</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="platform-card">
+                <h3>Freelance.ru</h3>
+                <p>Российская биржа с бесплатным размещением проектов. Аналог FL.ru, но чуть менее массовая. Есть каталог проверенных «PRO‑фрилансеров», секции по дизайну и видео.</p>
+                <div class="platform-info">
+                    <div class="info-item">
+                        <strong>Подходит для AI-контента</strong>
+                        <span>Да</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Ставки</strong>
+                        <span>По проектам – от нескольких тысяч и выше</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Скорость заказов</strong>
+                        <span>Средняя – как на FL.ru, требуется активный поиск проектов и отклик</span>
+                    </div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ Плюсы</h4>
+                        <ul>
+                            <li>Нет платы за размещение</li>
+                            <li>Система безопасных сделок</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>❌ Минусы</h4>
+                        <ul>
+                            <li>Конкуренция высокая, особенно в популярных категориях</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="platform-card">
+                <h3>FreelanceHunt (freelancehunt.com)</h3>
+                <p>Украинская (с мультиязычным интерфейсом) биржа фриланса. Один из лидеров региона: на 2024 год здесь опубликовано свыше 144 тыс. заданий на 528 млн грн, зарегистрировано 904 тыс. фрилансеров. Есть категории IT, дизайн, тексты и др.</p>
+                <div class="platform-info">
+                    <div class="info-item">
+                        <strong>Подходит для AI-контента</strong>
+                        <span>Да (вакансии по генерации видео/аудио/текстов регулярно появляются)</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Ставки</strong>
+                        <span>В гривнах/рублях – обычно $5–25/ч или эквивалент (напр., на AI-темах от $5/ч)</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Скорость заказов</strong>
+                        <span>Хорошая – сотни новых проектов в день, низкая комиссия (9% общей) стимулирует работу</span>
+                    </div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ Плюсы</h4>
+                        <ul>
+                            <li>Низкая комиссия 9%</li>
+                            <li>Безопасная сделка, крупная база заказчиков</li>
+                            <li>Новичкам проще найти заказ по низкой цене (есть фильтры проектов)</li>
+                            <li>Опытные фрилансеры привлекают платёжеспособных клиентов и крупные компании</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>❌ Минусы</h4>
+                        <ul>
+                            <li>Многие исполнители (большая конкуренция)</li>
+                            <li>Необходимость ориентироваться на украинский рынок</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="platform-card">
+                <h3>Habr Freelance (freelance.habr.com)</h3>
+                <p>Биржа от сообщества Habr. Простой интерфейс, ориентирована на IT и креатив. Более 60 тыс. фрилансеров в разных категориях.</p>
+                <div class="platform-info">
+                    <div class="info-item">
+                        <strong>Подходит для AI-контента</strong>
+                        <span>Да (есть задачи по дизайну видео, обработке и т.д.)</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Ставки</strong>
+                        <span>Чаще всего от 1–3 тыс. ₽ за задачу (или $/ч для международных проектов)</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Скорость заказов</strong>
+                        <span>Низкая – площадка меньше FL.ru, проектов не так много</span>
+                    </div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ Плюсы</h4>
+                        <ul>
+                            <li>Честные отзывы и безопасная сделка</li>
+                            <li>Для продвинутых полезна портфолио</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>❌ Минусы</h4>
+                        <ul>
+                            <li>Мало заказов для новичка</li>
+                            <li>Без опыта продать свои услуги сложно</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="platform-card">
+                <h3>WorkZilla (work-zilla.com)</h3>
+                <p>Классическая биржа «заказчик–исполнитель» для любых мелких задач. Профиль фрилансера требует прохождения теста и подписки (есть платный доступ), зато первая заявка обычно поступает уже через 35 секунд.</p>
+                <div class="platform-info">
+                    <div class="info-item">
+                        <strong>Подходит для AI-контента</strong>
+                        <span>Частично – здесь больше задачи по переводу/администрированию/контенту; но многие предлагали здесь услуги видеомонтажа, скриптов или написания текстов через ИИ</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Ставки</strong>
+                        <span>Заказчик сам назначает бюджет, обычно это небольшие суммы (от нескольких сотен рублей за простое задание)</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Скорость заказов</strong>
+                        <span>Очень высокая – у платформы 854 000 исполнителей и 4,5 млн выполненных заданий, заказов много</span>
+                    </div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ Плюсы</h4>
+                        <ul>
+                            <li>Быстрое получение первых заказов</li>
+                            <li>Защищённая сделка</li>
+                            <li>Для опытных: хороший источник мелких регулярных заказов (плюс есть система рейтинга)</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>❌ Минусы</h4>
+                        <ul>
+                            <li>Для новичков: требование подписки и тестирования</li>
+                            <li>Часто низкий бюджет задач</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="platform-card">
+                <h3>YouDo (youdo.com)</h3>
+                <p>Крупный сервис услуг (включая онлайн-заказы), позиционируется как платформа для поиска специалистов по различным задачам. Охватывает не только бытовые услуги, но и удалённую работу (дизайн, маркетинг, IT).</p>
+                <div class="platform-info">
+                    <div class="info-item">
+                        <strong>Подходит для AI-контента</strong>
+                        <span>Да (есть раздел «фриланс» для удалённых заказов)</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Ставки</strong>
+                        <span>Объявления здесь часто на фиксированную сумму — от нескольких сотен до нескольких тысяч рублей за задачу</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Скорость заказов</strong>
+                        <span>Достаточно быстрая – клиенты оставляют заявки 24/7</span>
+                    </div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ Плюсы</h4>
+                        <ul>
+                            <li>Простой старт, широкий круг заказов</li>
+                            <li>Для специалистов по AI/дизайну конкуренция меньше</li>
+                            <li>Новичкам можно начать со стандартных услуг YouDo (например, монтаж короткого видео)</li>
+                            <li>Продвинутые фрилансеры найдут редкие креативные заказы</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>❌ Минусы</h4>
+                        <ul>
+                            <li>Многое делают «на месте» (заказы по ремонту, доставка и т.п.)</li>
+                            <li>Для специалистов по AI/дизайну заказчиков немного</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="platform-card">
+                <h3>NeuroLance (neurolance.ru)</h3>
+                <p>Новая узкоспециализированная биржа для задач с ИИ. На NeuroLance публикуют задания по генерации изображений, видео, текстов с помощью нейросетей.</p>
+                <div class="platform-info">
+                    <div class="info-item">
+                        <strong>Подходит для AI-контента</strong>
+                        <span>Полностью (все работы тут связаны с нейросетями)</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Ставки</strong>
+                        <span>Очень низкие, судя по текущим заданиям (от 10–500 ₽ за задание)</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Скорость заказов</strong>
+                        <span>Платформа совсем новая, активность небольшая, заказчики появляются нечасто</span>
+                    </div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ Плюсы</h4>
+                        <ul>
+                            <li>Узкая ниша, почти нет конкуренции</li>
+                            <li>Для новичка можно попробовать</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>❌ Минусы</h4>
+                        <ul>
+                            <li>Очень мало заказов и клиентов на старте</li>
+                            <li>Непроверенная репутация площадки</li>
+                            <li>Для опытных пока мало перспектив (еще нет потока серьёзных клиентов)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="platform-card">
+                <h3>Fiverr (fiverr.com)</h3>
+                <p>Международный маркетплейс «гигов», аналог Kwork. Интерфейс англоязычный, но многие русскоговорящие фрилансеры успешно работают здесь. Есть сотни категорий (Graphic & Video, AI Content и пр.). Запросов по AI-видео очень много: по запросу «AI video creator» нашлось 54 476 услуг.</p>
+                <div class="platform-info">
+                    <div class="info-item">
+                        <strong>Подходит для AI-контента</strong>
+                        <span>Да</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Ставки</strong>
+                        <span>Большинство гигов стартуют от $5–10 (простые задачи) до $20–50 за минуту видео или за комплексный ролик</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Скорость заказов</strong>
+                        <span>Быстро – Fiverr сам продвигает ваши сервисы, пока вы набираете отзывы</span>
+                    </div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ Плюсы</h4>
+                        <ul>
+                            <li>Огромная аудитория (десятки тысяч предложений по AI-видео)</li>
+                            <li>Простота оформления гигов</li>
+                            <li>Новичкам стоит начинать с дешёвых услуг и копировать успешные иностранные гиг-предложения</li>
+                            <li>Опытные смогут получить иностранных клиентов и конвертировать доход в рубли по выгодному курсу</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>❌ Минусы</h4>
+                        <ul>
+                            <li>Без знаний английского сложно вести переписку</li>
+                            <li>Высокая комиссия (до 20%)</li>
+                            <li>Жёсткая конкуренция цен</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="platform-card">
+                <h3>Upwork (upwork.com)</h3>
+                <p>Самая крупная зарубежная фриланс-биржа. Интерфейс англоязычный, платформа ориентирована на профессиональные проекты и почасовую оплату. Для AI-контента есть целая «Emerging Tech» категория с Generative AI, AI Content Creators, Midjourney Artists и др.</p>
+                <div class="platform-info">
+                    <div class="info-item">
+                        <strong>Подходит для AI-контента</strong>
+                        <span>Да</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Ставки</strong>
+                        <span>Начинаются от ~$10–15/ч, у опытных исполнителей $30–100/ч и выше (для российских часто ниже западных, но вознаграждение в долларах)</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Скорость заказов</strong>
+                        <span>Средняя – требуются заявки на проекты, конкуренция глобальная</span>
+                    </div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ Плюсы</h4>
+                        <ul>
+                            <li>Колоссальный рынок клиентов, серьезные бюджеты</li>
+                            <li>Опытные фрилансеры часто получают крупные проекты</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>❌ Минусы</h4>
+                        <ul>
+                            <li>Строгие требования (портфолио, знание английского)</li>
+                            <li>Жёсткая конкуренция и 10–20% комиссия</li>
+                            <li>Новичкам вряд ли дадут быстрый заказ без опыта</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="platform-card">
+                <h3>Freelancer.com</h3>
+                <p>Международный сайт фриланса с конкурсами и проектами. Похож на Upwork, но нередко ставки ниже (видно на примере AI-контента от $5/ч и выше).</p>
+                <div class="platform-info">
+                    <div class="info-item">
+                        <strong>Подходит для AI-контента</strong>
+                        <span>Да</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Ставки</strong>
+                        <span>От $5–10/ч (для начинающих) до $20–30/ч и выше</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Скорость заказов</strong>
+                        <span>Задания публикуются постоянно, но приходится активно отбиваться в конкурсах</span>
+                    </div>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ Плюсы</h4>
+                        <ul>
+                            <li>Много мелких проектов, низкая стоимость услуг</li>
+                            <li>Лёгкий вход без жёстких проверок (в отличие от Upwork)</li>
+                            <li>Подходит как новичкам для набора опыта, так и продвинутым желающим снизить ценник для привлечения клиентов</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>❌ Минусы</h4>
+                        <ul>
+                            <li>Многочисленные спам-проекты</li>
+                            <li>Очень низкие бюджеты</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="task-box">
+                <h3>‼️ Задание для участников</h3>
+                <p>Если у вас уже был опыт — поделитесь в <a href="https://t.me/c/2338065673/11434" target="_blank">Чате Заработок на ИИ и Контенте</a>:</p>
+                <ul>
+                    <li>На какой площадке вы пробовали предлагать AI-контент или другие услуги?</li>
+                    <li>Есть ли отклики, заявки, продажи?</li>
+                    <li>А если не пробовали — с какой площадки вы бы хотели начать?</li>
+                </ul>
+            </div>
+
+            <div class="sources-section">
+                <h3>Источники</h3>
+                <p style="margin-bottom: 20px; color: rgba(255, 255, 255, 0.8);">Описания и характеристики площадок взяты из официальных сайтов и обзоров. Каждая платформа указана с учётом возможности быстрой конвертации услуг AI-видео/контента в заказы.</p>
+                
+                <div class="sources-category">
+                    <div class="sources-category-title">Общие обзоры платформ</div>
+                    <ul class="sources-list">
+                        <li><a href="https://www.livebusiness.ru/tools/freelance/" target="_blank">Топ 10: Биржи фрилансеров для России</a></li>
+                        <li><a href="https://vc.ru/services/1499441-top-13-luchshih-frilans-birzh-dlya-zarabotka-v-2025-godu" target="_blank">ТОП 13 лучших фриланс бирж для заработка в 2025 году</a></li>
+                    </ul>
+                </div>
+
+                <div class="sources-category">
+                    <div class="sources-category-title">Kwork</div>
+                    <ul class="sources-list">
+                        <li><a href="https://kwork.ru/categories/videogeneration" target="_blank">ИИ-генерация видео: услуги фрилансеров от 500 руб. – Kwork</a></li>
+                        <li><a href="https://vc.ru/hr/868723-kak-novichku-s-nulya-probitsya-v-top-kwork-i-vyiti-na-dohod-150k-v-mesyac" target="_blank">Как новичку с нуля пробиться в ТОП Kwork и выйти на доход 150к+ в месяц</a></li>
+                    </ul>
+                </div>
+
+                <div class="sources-category">
+                    <div class="sources-category-title">FreelanceHunt</div>
+                    <ul class="sources-list">
+                        <li><a href="https://freelancehunt.com/" target="_blank">Фриланс биржа Freelancehunt — лучший сайт для поиска фрилансеров и удаленной работы</a></li>
+                    </ul>
+                </div>
+
+                <div class="sources-category">
+                    <div class="sources-category-title">Международные платформы</div>
+                    <ul class="sources-list">
+                        <li><a href="https://www.freelancer.com/hire/ai-content-creation" target="_blank">Find Top AI Content Creators for Hire on Freelancer</a></li>
+                        <li><a href="https://www.fiverr.com/gigs/ai-video-creator" target="_blank">24 Best Ai Video Creator Services To Buy Online | Fiverr</a></li>
+                        <li><a href="https://www.upwork.com/hire/ai-content-creators/" target="_blank">The Best Freelance AI Content Creators for Hire in November 2025 - Upwork</a></li>
+                    </ul>
+                </div>
+
+                <div class="sources-category">
+                    <div class="sources-category-title">Специализированные платформы</div>
+                    <ul class="sources-list">
+                        <li><a href="https://work-zilla.com/" target="_blank">Биржа фриланса Workzilla — исполнители для любых заданий</a></li>
+                        <li><a href="https://neurolance.ru/" target="_blank">Биржа фриланса для работ с нейронными сетями: найдите лучших специалистов</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 AI Guild | Генеративный контент</p>
+        </div>
+    </div>
+</body>
+</html>

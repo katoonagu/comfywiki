@@ -1,0 +1,19 @@
+2026-02-07T17:07:24.551267510Z ==========
+2026-02-07T17:07:24.551271080Z == CUDA ==
+2026-02-07T17:07:24.551274840Z ==========
+2026-02-07T17:07:24.553955622Z CUDA Version 12.8.1
+2026-02-07T17:07:24.554820259Z Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+2026-02-07T17:07:24.555718676Z This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+2026-02-07T17:07:24.555722026Z By pulling and using the container, you accept the terms and conditions of this license:
+2026-02-07T17:07:24.555724636Z https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+2026-02-07T17:07:24.555729146Z A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+2026-02-07T17:07:24.563444292Z Starting Nginx service...
+2026-02-07T17:07:24.571022558Z  * Starting nginx nginx
+2026-02-07T17:07:24.577265468Z    ...done.
+2026-02-07T17:07:24.577546128Z Running pre-start script...
+2026-02-07T17:07:24.578925093Z **** Setting the timezone based on the TIME_ZONE environment variable. If not set, it defaults to Etc/UTC. ****
+2026-02-07T17:07:24.578971703Z **** Timezone set to Etc/UTC ****
+2026-02-07T17:07:24.807007694Z Current default time zone: 'Etc/UTC'
+2026-02-07T17:07:24.808547960Z Local time is now:      Sat Feb  7 17:07:24 UTC 2026.
+2026-02-07T17:07:24.808559980Z Universal Time is now:  Sat Feb  7 17:07:24 UTC 2026.
+2026-02-07T17:07:24.826708082Z **** syncing venv to workspace, please wait. This could take a while on first startup! ****

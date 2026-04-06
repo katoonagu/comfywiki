@@ -1,0 +1,194 @@
+# ✅ СКАЧАТЬ 4 ФАЙЛА → ЗАЛИТЬ В УЖЕ СУЩЕСТВУЮЩИЕ ПАПКИ НА GOOGLE DRIVE (resumable)
+# Путь фиксированный: My Drive/ComfyUI/models/{vae,text_encoders,loras,diffusion_models}
+# ВНИМАНИЕ: Папки должны существовать заранее. Скрипт их НЕ СОЗДАЁТ.
+
+import os, subprocess, time
+
+# -------- 0) Монтирование Google Drive --------
+from google.colab import drive
+drive.mount('/content/drive', force_remount=True)
+
+# -------- 1) Установки --------
+subprocess.run(["apt","-y","update","-qq"], check=False)
+subprocess.run(["apt","-y","install","-qq","aria2"], check=True)
+subprocess.run(["pip","-q","install","google-api-python-client","google-auth-httplib2","google-auth-oauthlib"], check=True)
+
+# -------- 2) Конфигурация --------
+TARGET_BASE = ["ComfyUI", "models"]   # точный путь
+TRASH_EXISTING = True                 # переносить дубликаты в корзину перед загрузкой
+CHUNK_MB = 16
+
+FILES = [
+    {
+        "desc": "diffusion_models",
+        "LINK": "https://cas-bridge.xethub.hf.co/xet-bridge-us/687f6a6e50a26ff8c82d9a00/f8cd0f8b06fea6c4f5f97468e35061ae95cdeba999adec11078b848d7a44233c?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20251013%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251013T120230Z&X-Amz-Expires=3600&X-Amz-Signature=348310c794084891be23ce84734923460b4432e1a0a3bf84e3d241fdcaa8e942&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=attachment%3B+filename*%3DUTF-8%27%27Wan2_2-I2V-A14B-HIGH_fp8_e4m3fn_scaled_KJ.safetensors%3B+filename%3D%22Wan2_2-I2V-A14B-HIGH_fp8_e4m3fn_scaled_KJ.safetensors%22%3B&x-id=GetObject&Expires=1760360550&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MDM2MDU1MH19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82ODdmNmE2ZTUwYTI2ZmY4YzgyZDlhMDAvZjhjZDBmOGIwNmZlYTZjNGY1Zjk3NDY4ZTM1MDYxYWU5NWNkZWJhOTk5YWRlYzExMDc4Yjg0OGQ3YTQ0MjMzYyoifV19&Signature=HITkZeN9qS41ArTG9VshSXSr6kNEsSNqz5fQaonsOjPP-SCRt5iuyy-qXGQmsGY5mHd%7EKWgRI2O2GcsIQmnIMS8tE4hFN2ckzmOZboy0vKY00ijAodYC967mDelm2kWV%7EKJVG7HsP-zy8h3xDVlXuRznqJbAVn9dNSztTszct2jWsakOgGayQRbUFXKoTDGz88KQ5SbqKdJSzml%7EXUe5W12T3qOB4%7EFRTrSs9ICuc8ew5xFShQzKwXGbp0QIl%7EZylHrjF-809wx-3-9w5%7EZZvHVG4wxvSb9XZcV8rQIihvO2gznP7xkrvc6KNUI6LoppV3au-LgRiETCWHjWpmgufQ__&Key-Pair-Id=K2L8F4GPSG1IFC",  # <-- вставь ссылку
+        "FILENAME": "Wan2_2-I2V-A14B-HIGH_fp8_e4m3fn_scaled_KJ.safetensors",
+        "SUBFOLDER": "diffusion_models",
+        "MIN_SIZE_GB": 0,
+    },
+    {
+        "desc": "diffusion_models",
+        "LINK": "https://cas-bridge.xethub.hf.co/xet-bridge-us/687f6a6e50a26ff8c82d9a00/890ee73b8cc6598bce912724717892fee72a7067b8a18444071d78f411fc656d?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cas%2F20251013%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20251013T120316Z&X-Amz-Expires=3600&X-Amz-Signature=8bfd2e761fdb5ba63fd367dc72f2e220a9f12de26127d2ec35c00d0b5bd02842&X-Amz-SignedHeaders=host&X-Xet-Cas-Uid=public&response-content-disposition=attachment%3B+filename*%3DUTF-8%27%27Wan2_2-I2V-A14B-LOW_fp8_e4m3fn_scaled_KJ.safetensors%3B+filename%3D%22Wan2_2-I2V-A14B-LOW_fp8_e4m3fn_scaled_KJ.safetensors%22%3B&x-id=GetObject&Expires=1760360596&Policy=eyJTdGF0ZW1lbnQiOlt7IkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc2MDM2MDU5Nn19LCJSZXNvdXJjZSI6Imh0dHBzOi8vY2FzLWJyaWRnZS54ZXRodWIuaGYuY28veGV0LWJyaWRnZS11cy82ODdmNmE2ZTUwYTI2ZmY4YzgyZDlhMDAvODkwZWU3M2I4Y2M2NTk4YmNlOTEyNzI0NzE3ODkyZmVlNzJhNzA2N2I4YTE4NDQ0MDcxZDc4ZjQxMWZjNjU2ZCoifV19&Signature=BDw-VGizn1NjZXuirYXVzh2%7E0UGqrCZXlsXcQMhk1Cf8Dsi174-ALCIUb5UMBKpd5HOXi4CoxYj0IO6KXpRlxxlfhtyfApzm1mR6aC8jRr8Qd1q-jrC8kwyF%7EcvM4CO1o9qZMH%7EdPzsaYQkA7Nf7OwqgJW%7EiIJRU187iQl4%7EwdYFJqMTv%7EfM0TIJR8obnuqFLaUNyJlyPhuDwMLKt49DC6wA4GpQF9fa%7EsiQ-7CQmFiaC1rqdXgROPYwnOH19usWMEkwv9nLwurrPhkYCucWO%7EAsSg2CRLgEwCCeGzariAnKQZ653BykWjX4hYaGt0rEfLxMNzUL5QRYgcGuyMdEXw__&Key-Pair-Id=K2L8F4GPSG1IFC",  # <-- вставь ссылку
+        "FILENAME": "Wan2_2-I2V-A14B-LOW_fp8_e4m3fn_scaled_KJ.safetensors",
+        "SUBFOLDER": "diffusion_models",
+        "MIN_SIZE_GB": 0,
+    },
+]
+
+# -------- 3) Авторизация Google API --------
+from google.colab import auth
+auth.authenticate_user()
+from googleapiclient.discovery import build
+from googleapiclient.http import MediaFileUpload
+drive_api = build("drive","v3")
+
+# -------- 4) Вспомогательные функции (без создания папок) --------
+def get_child_folder_id_by_name(name, parent_id):
+    """Возвращает ID подпапки name внутри parent_id. Если нет — None.
+       Если нашлось несколько — берём первую и предупреждаем."""
+    q = (
+        f"name = '{name}' and mimeType = 'application/vnd.google-apps.folder' "
+        f"and trashed = false and '{parent_id}' in parents"
+    )
+    res = drive_api.files().list(q=q, spaces="drive", fields="files(id,name)", pageSize=10).execute()
+    items = res.get("files", [])
+    if not items:
+        return None, 0
+    if len(items) > 1:
+        print(f"⚠️ Найдено несколько папок '{name}' под родителем {parent_id}. Беру первую.")
+    return items[0]["id"], len(items)
+
+def resolve_existing_path(segments):
+    """Ищет СУЩЕСТВУЮЩИЙ путь относительно 'root' (My Drive). Ошибка, если чего-то нет."""
+    parent = "root"  # корень «Мой диск»
+    for seg in segments:
+        fid, _ = get_child_folder_id_by_name(seg, parent)
+        if not fid:
+            raise FileNotFoundError(f"❌ Не найдена папка: {' / '.join(segments[:segments.index(seg)+1])}")
+        parent = fid
+    return parent  # id конечной папки
+
+def find_files_by_name_in_parent(name, parent_id):
+    q = f"name = '{name}' and trashed = false and '{parent_id}' in parents"
+    res = drive_api.files().list(q=q, spaces="drive", fields="files(id,name,size)", pageSize=100).execute()
+    return res.get("files", [])
+
+def aria2_download(link, filename, local_dir="/content"):
+    local_path = os.path.join(local_dir, filename)
+    print(f"↓ Скачиваю локально: {local_path}")
+    cmd = ["aria2c","--continue=true","--file-allocation=none","-x16","-s16","-k1M","-o",filename,link]
+    subprocess.run(cmd, check=True)
+    if not os.path.exists(local_path):
+        raise FileNotFoundError(f"❌ Файл не найден после загрузки: {local_path}")
+    size = os.path.getsize(local_path)
+    print(f"✅ Локально загружен: {size/1e9:.2f} GB")
+    return local_path, size
+
+def resumable_upload(local_path, dest_folder_id, filename, chunk_mb=16):
+    file_metadata = {"name": filename, "parents": [dest_folder_id]}
+    media = MediaFileUpload(local_path, mimetype="application/octet-stream",
+                            resumable=True, chunksize=1024*1024*chunk_mb)
+    request = drive_api.files().create(body=file_metadata, media_body=media, fields="id,name,size,webViewLink")
+    response = None
+    last_print = 0
+    print("↑ Загружаю в Google Drive (resumable):", filename)
+    while response is None:
+        status, response = request.next_chunk()
+        if status:
+            now = time.time()
+            if now - last_print > 1.0:
+                print(f"   ... {status.progress()*100:5.1f}%")
+                last_print = now
+    return response
+
+def list_folder_api(folder_id, max_items=50):
+    return drive_api.files().list(
+        q=f"'{folder_id}' in parents and trashed=false",
+        fields="files(id,name,size,modifiedTime)", pageSize=max_items, orderBy="modifiedTime desc"
+    ).execute().get("files", [])
+
+# -------- 5) Проверяем, что базовый путь уже существует --------
+models_folder_id = resolve_existing_path(TARGET_BASE)  # My Drive/ComfyUI/models
+
+# -------- 6) Основной цикл --------
+results, errors = [], []
+subfolders_ids = {}
+
+for cfg in FILES:
+    print("\n" + "="*88)
+    print(f"▶ {cfg['desc']}: {cfg['FILENAME']} → My Drive/{'/'.join(TARGET_BASE+[cfg['SUBFOLDER']])}")
+    print("="*88)
+
+    try:
+        if not cfg["LINK"] or cfg["LINK"].startswith("PASTE_URL"):
+            raise ValueError(f"Не задан LINK для {cfg['FILENAME']}. Вставь валидный URL.")
+
+        # 1) Проверяем, что нужная подпапка существует (НЕ создаём)
+        dest_folder_id = subfolders_ids.get(cfg["SUBFOLDER"])
+        if dest_folder_id is None:
+            dest_folder_id = resolve_existing_path(TARGET_BASE + [cfg["SUBFOLDER"]])
+            subfolders_ids[cfg["SUBFOLDER"]] = dest_folder_id
+
+        # 2) Скачивание
+        local_path, size_bytes = aria2_download(cfg["LINK"], cfg["FILENAME"])
+        if size_bytes < cfg["MIN_SIZE_GB"] * (1024**3):
+            raise RuntimeError(f"❌ Малый размер ({size_bytes/1e9:.2f} GB). MIN={cfg['MIN_SIZE_GB']} GB")
+
+        # 3) Трашим дубликаты (если включено)
+        if TRASH_EXISTING:
+            for item in find_files_by_name_in_parent(cfg["FILENAME"], dest_folder_id):
+                drive_api.files().update(fileId=item["id"], body={"trashed": True}).execute()
+                print(f"🗑️  В корзину дубликат: {item['id']} ({int(item.get('size',0))/1e9:.2f} GB)")
+
+        # 4) Загрузка
+        resp = resumable_upload(local_path, dest_folder_id, cfg["FILENAME"], CHUNK_MB)
+        file_id = resp["id"]
+        web = resp.get("webViewLink","(нет ссылки)")
+        print(f"✅ Файл создан на Диске: {web}")
+
+        # 5) Проверка размера на Диске
+        meta = drive_api.files().get(fileId=file_id, fields="id,name,size,parents").execute()
+        gsize = int(meta.get("size","0"))
+        print(f"📏 Размер на Диске: {gsize/1e9:.2f} GB")
+
+        results.append({"file": cfg["FILENAME"], "folder": "/".join(TARGET_BASE+[cfg["SUBFOLDER"]]), "id": file_id, "size_gb": gsize/1e9})
+    except Exception as e:
+        errors.append({"file": cfg["FILENAME"], "err": str(e)})
+        print(f"⚠️ Ошибка при обработке {cfg['FILENAME']}: {e}")
+
+# -------- 7) Листы содержимого --------
+print("\n" + "#"*88)
+print("# СОДЕРЖИМОЕ ПАПОК (API и смонтированный путь)")
+print("#"*88)
+
+# База models
+print("\n📚 API-список для: Мой диск → " + " → ".join(TARGET_BASE))
+for f in list_folder_api(models_folder_id, 200):
+    sz = (int(f.get("size",0))/1e9) if f.get("size") else 0
+    print(f" - {f['name']}  ({sz:.2f} GB)  id={f['id']}")
+base_path = "/content/drive/MyDrive/" + "/".join(TARGET_BASE)
+print("📂 Смонтированная папка:", base_path)
+os.system(f'ls -lh \"{base_path}\" || true')
+
+# Подпапки
+for sub, fid in subfolders_ids.items():
+    print("\n📚 API-список для: Мой диск → " + " → ".join(TARGET_BASE+[sub]))
+    for f in list_folder_api(fid, 200):
+        sz = (int(f.get("size",0))/1e9) if f.get("size") else 0
+        print(f" - {f['name']}  ({sz:.2f} GB)  id={f['id']}")
+    p = base_path + "/" + sub
+    print("📂 Смонтированная папка:", p)
+    os.system(f'ls -lh \"{p}\" || true')
+
+# -------- 8) Сводка --------
+print("\n" + "—"*88)
+print("🧾 Сводка:")
+for r in results:
+    print(f" ✓ {r['file']} → {r['folder']}  ({r['size_gb']:.2f} GB)  id={r['id']}")
+if errors:
+    print("\n⚠️ Были ошибки:")
+    for e in errors:
+        print(f" - {e['file']}: {e['err']}")
+else:
+    print("\n✅ Все операции завершены успешно.")
+print("—"*88)

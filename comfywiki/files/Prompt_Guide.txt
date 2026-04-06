@@ -1,0 +1,247 @@
+
+Different Types of Shots – Типы кинокадров
+
+Extreme Close-Up — Экстремальный крупный план: деталь (глаз, губы, предмет)
+Close-Up — Крупный план: лицо или объект целиком
+Medium Close-Up — Погрудный план: от груди и выше
+Medium Shot — Средний план: от пояса и выше
+Medium Long Shot — Трёхчетвертной план: от колен и выше
+Full Shot — Полный рост: персонаж полностью в кадре
+Wide Shot / Long Shot — Общий план: фигура + окружение
+Extreme Long Shot — Дальний план: персонаж едва различим
+Establishing Shot — Установочный кадр: вводит в локацию
+
+Over-the-Shoulder Shot — С плеча: используется в диалогах
+Two-Shot — Два персонажа в одном кадре
+Group Shot — Группа людей в кадре
+POV Shot — Вид от первого лица
+Insert Shot — Вставка: короткий кадр с деталью
+Cut-in / Cutaway — Внутрикадровая вставка / перебивка
+Reaction Shot — Эмоциональная реакция персонажа
+Tracking Shot — Съёмка с движущейся камеры (долли)
+Crane Shot — Съёмка с подъёмного крана
+Bird's Eye View — Вид с высоты птичьего полёта
+Worm’s Eye View — Вид снизу: подчеркнутая перспектива
+High Angle Shot — Камера сверху: делает героя менее значимым
+Low Angle Shot — Камера снизу: герой кажется могущественным
+Eye Level Shot — Камера на уровне глаз: нейтральная перспектива
+Dutch Angle — Наклонённая камера: создаёт тревогу
+Oner / Long Take — Один длинный непрерывный кадр
+Silhouette Shot — Контровой свет: только контур персонажа
+Shadow Shot — Только тень героя: символика
+Mirror Shot — Отражение в зеркале или воде
+Through the Glass — Съёмка сквозь окно/стекло
+Underwater Shot — Съёмка под водой
+X-Ray Shot (Visual metaphor) — Визуально "сквозь" предмет или тело: метафора
+Drone Shot — С воздуха: обзорный план
+GoPro Shot — Экшн-перспектива от шлема/тела
+Fisheye Shot — Искажённая перспектива: широкоугольный объектив
+Reverse Shot — Ответный ракурс: в диалоге
+Slow Zoom — Медленное приближение: эффект напряжения
+Zoom Out Reveal — Отдаление: показывает масштаб сцены
+Handheld Shot — Камера в руках: эффект реализма
+Steadicam Shot — Плавное движение: эффект «присутствия»
+
+
+Camera Movement & Dynamics – Движение камеры и динамика
+
+Whip Pan / Swish Pan — Быстрый рывок камеры по горизонтали (переход или напряжение)
+Crash Zoom — Резкое приближение, часто используется в азиатском кино
+Rack Focus — Переключение фокуса с одного объекта на другой
+360° Shot — Обход камеры вокруг персонажа (драма или экшен)
+Push-in — Медленное приближение камеры (усиление эмоционального момента)
+Pull-back — Медленное отдаление камеры (осознание масштаба, одиночество)
+Tilt (up/down) — Камера двигается вертикально вверх или вниз
+Pan (left/right) — Горизонтальное движение без смены позиции
+Static shot — Статичная камера, подчёркивает важность происходящего
+
+
+Cinematic Look – Киношный стиль
+
+Cinematic — Общий киноэффект, как в фильмах
+Film grain — Зернистость плёнки
+Ultra realistic — Предельная реалистичность
+Soft focus — Мягкий фокус, "туманная" глубина
+Anamorphic lens — Кинематографические искажения объектива
+Lens flare — Блики от источников света
+Depth of field — Глубина резкости
+Color graded — Профессиональная цветокоррекция
+Vintage film look — Эффект старой плёнки
+Desaturated — Приглушённые цвета
+Muted tones — Умеренные, "пыльные" оттенки
+Golden hour lighting — Золотой час: мягкий тёплый свет
+Bokeh — Художественное размытие заднего фона
+
+
+Visual Composition Techniques – Композиционные приёмы
+(для усиления эстетики кадра)
+
+Rule of thirds — Расположение объекта по правилам третей
+Leading lines — Линии, ведущие взгляд к объекту
+Negative space — Пространство вокруг объекта, подчёркивает одиночество
+Framing within a frame — Объект в "рамке": дверь, окно и т.п.
+Foreground interest — Элемент на переднем плане, создающий глубину
+Depth layering — Несколько планов: передний, средний, дальний
+Center framing — Центрированная композиция (симметрия, тревога)
+Symmetry vs Asymmetry — Баланс или дисбаланс в композиции
+
+
+Lighting Techniques – Техники освещения
+
+High Key Lighting — Яркий свет, минимум теней
+Low Key Lighting — Много тени, драматичный эффект
+Rim Lighting — Контровой свет по контуру объекта
+Practical Lighting — Источники света, видимые в кадре
+Motivated Lighting — Свет, оправданный сюжетом
+Silhouette Lighting — Свет за объектом, создаёт силуэт
+Natural Light — Естественное освещение
+Studio Light — Студийный свет
+Backlighting — Подсветка сзади
+Colored gels — Цветные фильтры
+Spotlight — Узкий пучок света
+Candlelight — Свет свечей
+Neon — Яркий свет неоновых ламп
+Moonlight — Имитация лунного света
+Overexposed — Пересвет для эффекта
+
+
+Cinematography Gear – Оборудование и техника
+
+Arri Alexa — Киношная цифровая камера
+Canon Cinema EOS — Профессиональная линейка Canon
+Sony CineAlta — Киношная серия от Sony
+Blackmagic URSA Mini — Кино-камеры для инди-фильмов
+RED Komodo / V-Raptor — Профессиональные RED-камеры
+Super 16mm Film — Винтажная плёнка, зернистый стиль
+GoPro Hero — Экшн-камера с широким углом
+Drone camera — Камера на дроне
+Fisheye lens — Рыбий глаз: сильное искажение
+Gimbal / Steadicam — Стабилизаторы для плавной съёмки
+Handheld rig — Ручной риг для ручной съёмки
+Zoom lens — Универсальный объектив
+
+
+Genre & Style Tags – Жанры и стили
+
+Sci-fi — Научная фантастика
+Fantasy — Фэнтези
+Cyberpunk — Киберпанк
+Post-apocalyptic — Постапокалипсис
+Noir — Нуар, мрачная стилистика
+Horror — Ужасы
+Thriller — Триллер
+Action — Боевик
+Romance — Романтика
+Western — Вестерн
+Historical — Исторический
+Musical — Мюзикл
+Mystery — Мистика, загадки
+Drama — Драма
+Comedy — Комедия
+Surreal — Сюрреализм
+Art-house — Авторское кино
+Documentary style — Под документалку
+
+
+Emotions & Psychological States – Эмоции и психо-состояния
+
+Angry — Злость
+Sad — Грусть
+Happy — Радость
+Scared — Страх
+Hopeful — Надежда
+Surprised — Удивление
+Lonely — Одиночество
+Melancholy — Меланхолия
+Tension — Напряжение
+Confusion — Замешательство
+Wonder — Восторг
+Awe — Трепет
+Love — Любовь
+Boredom — Скука
+Determined — Решимость
+Despair — Отчаяние
+
+
+Locations & Environments – Локации и окружение
+
+Desert — Пустыня
+Rainforest — Тропический лес
+Urban rooftop — Городская крыша
+Old town — Старый город
+Neon street — Улица с неоном
+Highway — Шоссе
+Mountain pass — Горный перевал
+Ice cave — Ледяная пещера
+Underwater — Под водой
+Outer space — Космос
+Abandoned warehouse — Заброшенный склад
+Futuristic city — Город будущего
+Medieval village — Средневековая деревня
+Train station — Вокзал
+Cemetery — Кладбище
+
+
+Narratives & Tropes – Сюжетные тропы
+
+Hero's Journey — Путь героя
+Revenge — Месть
+Forbidden love — Запретная любовь
+Coming of Age — Повзросление
+Betrayal — Предательство
+Redemption — Искупление
+Lost in time — Застрявший во времени
+Stranger in a strange land — Чужой среди чужих
+Doomed romance — Обречённая любовь
+End of the world — Конец света
+
+
+Visual Tricks & Metaphors – Визуальные приёмы и метафоры
+
+Double exposure — Двойная экспозиция
+Reflection metaphor — Отражения как символ
+Symmetry shot — Симметрия в композиции
+Vignette — Затенённые края
+Split screen — Разделённый экран
+Time lapse — Ускоренная съёмка
+Slow motion — Замедленная съёмка
+Mirroring characters — Зеркальные позы персонажей
+Shadow play — Игра света и тени
+Color symbolism — Символика цвета
+
+
+Costuming & Props – Костюмы и реквизит
+(влияют на эпоху, жанр и характер)
+
+Tattered clothes — Порванная одежда (постапокалипсис, борьба)
+Military uniform — Военная форма (дисциплина, война)
+Vintage suit / dress — Ретро стиль (20–60е)
+Futuristic armor — Броня будущего
+Gas mask — Апокалипсис, опасность
+Suitcase / briefcase — Тайна, сюжетная зацепка
+Bloody knife / object — Триллер, драма
+Mask (ceremonial, gas, horror) — Символика, мистицизм
+
+
+Sound Cues (Metaphorical) – Образный звук для атмосферы
+
+Silence before chaos — Тревожное затишье
+Heartbeat sound — Напряжение, страх
+Distant thunder — Надвигающаяся опасность
+Echoing footsteps — Одиночество, заброшенность
+Mechanical hum — Научная фантастика, атмосфера будущего
+
+
+Directors & Styles – Режиссёры и стилистика
+
+Quentin Tarantino — Стиль: насилие, ирония, ретро
+Alfred Hitchcock — Саспенс и точная композиция
+Martin Scorsese — Драма, гангстеры, моральные конфликты
+Christopher Nolan — Временные петли, масштаб
+James Cameron — Эпичность, технологии, экшн
+Stanley Kubrick — Перфекционизм, симметрия, психология
+David Lynch — Сюрреализм, абсурд, тревога
+Wes Anderson — Симметрия, пастель, причудливость
+Michael Bay — Взрывы, динамика, слоу-мо
+Greta Gerwig — Современные женские образы
+Hayao Miyazaki — Фэнтези, экология, мечты

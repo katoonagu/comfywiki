@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ландшафт AI-видео рынка в 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.7;
+            color: #ffffff;
+            background: #0a0e27;
+            background-image: 
+                linear-gradient(rgba(79, 172, 254, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(79, 172, 254, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(10, 14, 27, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(79, 172, 254, 0.1);
+            overflow: hidden;
+            animation: fadeIn 0.6s ease-in;
+            border: 1px solid rgba(79, 172, 254, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.2) 0%, rgba(79, 172, 254, 0.1) 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 2px solid rgba(79, 172, 254, 0.4);
+            box-shadow: 0 0 30px rgba(79, 172, 254, 0.2);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(79, 172, 254, 0.15) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 0 20px rgba(79, 172, 254, 0.6);
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .guild-link {
+            display: inline-block;
+            color: #4facfe;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.3em;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .guild-link:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(79, 172, 254, 0.6);
+        }
+
+        .content {
+            padding: 50px 40px;
+        }
+
+        h2 {
+            color: #ffffff;
+            font-size: 2em;
+            margin: 40px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(79, 172, 254, 0.4);
+            position: relative;
+            font-weight: 700;
+        }
+
+        h2::before {
+            content: '▸';
+            color: #4facfe;
+            margin-right: 10px;
+        }
+
+        h3 {
+            color: #ffffff;
+            font-size: 1.5em;
+            margin: 30px 0 15px 0;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 1.05em;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(79, 172, 254, 0.3), rgba(79, 172, 254, 0.2));
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #ffffff;
+            border: 1px solid rgba(79, 172, 254, 0.5);
+        }
+
+        .stats-box {
+            background: rgba(10, 14, 27, 0.8);
+            border-left: 5px solid #4facfe;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3), 0 0 20px rgba(79, 172, 254, 0.2);
+            border: 1px solid rgba(79, 172, 254, 0.3);
+        }
+
+        .stats-box strong {
+            color: #ffffff;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        ul {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .monetization-section {
+            background: rgba(10, 14, 27, 0.8);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 2px solid rgba(79, 172, 254, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 20px rgba(79, 172, 254, 0.15);
+        }
+
+        .monetization-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(79, 172, 254, 0.4);
+            border-color: rgba(79, 172, 254, 0.7);
+        }
+
+        .monetization-section h3 {
+            color: #ffffff;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .monetization-section h3::before {
+            content: '💰';
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .price-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.3), rgba(79, 172, 254, 0.2));
+            color: #ffed4e;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 5px 5px 5px 0;
+            font-size: 0.95em;
+            box-shadow: 0 4px 8px rgba(79, 172, 254, 0.3);
+            border: 1px solid rgba(255, 237, 78, 0.4);
+        }
+
+        .strategy-box {
+            background: rgba(255, 237, 78, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border: 3px solid rgba(255, 237, 78, 0.5);
+            box-shadow: 0 8px 16px rgba(255, 237, 78, 0.3);
+        }
+
+        .strategy-box h3 {
+            color: #ffffff;
+            margin-top: 0;
+        }
+
+        .strategy-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .strategy-box li {
+            background: rgba(10, 14, 27, 0.8);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid #ffed4e;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .strategy-box li strong {
+            color: #ffffff;
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .task-box {
+            background: rgba(10, 14, 27, 0.8);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border: 3px solid rgba(79, 172, 254, 0.5);
+            box-shadow: 0 8px 16px rgba(79, 172, 254, 0.3);
+        }
+
+        .task-box h3 {
+            color: #ffffff;
+            margin-top: 0;
+        }
+
+        .task-box a {
+            color: #4facfe;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 2px solid #4facfe;
+            transition: all 0.3s ease;
+        }
+
+        .task-box a:hover {
+            color: #4facfe;
+            border-bottom-color: #4facfe;
+            text-shadow: 0 0 10px rgba(79, 172, 254, 0.6);
+        }
+
+        .focus-section {
+            background: rgba(10, 14, 27, 0.8);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border: 3px solid rgba(79, 172, 254, 0.4);
+            box-shadow: 0 0 20px rgba(79, 172, 254, 0.15);
+        }
+
+        .focus-section h3 {
+            color: #ffffff;
+            margin-top: 0;
+        }
+
+        .focus-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .focus-section li {
+            background: rgba(10, 14, 27, 0.6);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid #4facfe;
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .focus-section li::before {
+            content: '✓';
+            position: absolute;
+            left: 15px;
+            color: #4facfe;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .monetization-section,
+            .strategy-box,
+            .task-box,
+            .focus-section {
+                padding: 20px;
+            }
+        }
+
+        .sources-section {
+            background: rgba(10, 14, 27, 0.8);
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 12px;
+            border: 2px solid rgba(79, 172, 254, 0.4);
+            box-shadow: 0 0 20px rgba(79, 172, 254, 0.15);
+        }
+
+        .sources-section h3 {
+            color: #ffffff;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
+
+        .sources-category {
+            margin-bottom: 25px;
+        }
+
+        .sources-category-title {
+            color: #4facfe;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sources-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sources-list li {
+            margin: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .sources-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #4facfe;
+        }
+
+        .sources-list a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        .sources-list a:hover {
+            color: #4facfe;
+            border-bottom-color: #4facfe;
+        }
+
+        .sources-note {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(79, 172, 254, 0.2);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95em;
+            font-style: italic;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(10, 14, 27, 0.8);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9em;
+            border-top: 1px solid rgba(79, 172, 254, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Ландшафт AI-видео рынка в 2025</h1>
+            <p>Аналитика и стратегии монетизации</p>
+        </div>
+
+        <div class="content">
+            <p style="text-align: center; margin-bottom: 30px;">
+                <a href="https://aiguild.ru/" target="_blank" class="guild-link">Гильдия</a>
+            </p>
+            <h2>Состояние рынка</h2>
+            
+            <div class="stats-box">
+                <p>Глобальный рынок видеопродакшена стремительно растёт и оценивается в десятки миллиардов долларов. Так, по оценкам MarketResearchFuture, объём мирового рынка видеопродакшена в 2024 г. составлял <strong>≈$53.46 млрд</strong> (около 4,3 трлн рублей), а GrandView Research прогнозирует, что к 2030 г. он вырастет почти в 14 раз – до <strong>$746.9 млрд</strong> (≈60,3 трлн рублей). Это отражено на графике: несмотря на разные оценки ($53–70 млрд в начале 2020-х), все аналитики видят огромный рост (CAGR порядка 30–35% по GrandView).</p>
+            </div>
+
+            <p>Рынок AI-видео пока относительно невелик по сравнению с «традиционным», но быстро растёт. По оценкам Precedence Research, весь рынок AI-видео (включая видеоанализ и генерацию) был <span class="highlight">$7.6 млрд в 2024 г.</span> (~613 млрд руб) и может достичь <span class="highlight">$156.6 млрд к 2034 г.</span> (CAGR >35%). GrandView оценивает рынок AI-генераторов видео в ~$3.86 млрд на 2024 г. (~312 млрд руб). Это лишь несколько процентов от общего видео-рынка, но рост впечатляет (многократный прирост год к году).</p>
+
+            <div class="stats-box">
+                <p>AI-технологии уже значительно удешевляют и ускоряют производство видео. В традиционном видеопроизводстве усреднённые затраты – от <strong>$1,000 до $5,000</strong> за минуту готового ролика (≈80–400 тыс. руб/мин), что приводит к проектам стоимостью десятки тысяч долларов. В то же время подписки на AI-платформы стоят лишь <strong>$18–89 в месяц</strong>, а результат можно получить «из коробки» за считанные часы или дни. По данным Paracast, AI-решения могут сокращать время производства на 80%: ролик, на создание которого по традиционной схеме уходит недели, AI-системы делают за часы–дни. Так, исследование показало, что AI-инструменты сократили среднее время маркетингового видео с ≈13 дней до 5 дней.</p>
+            </div>
+
+            <p>Нарастание объёмов видео сопровождается и ростом спроса на него в бизнесе. Согласно опросам, <span class="highlight"><strong>89% маркетологов</strong></span> уже активно используют видео в стратегии, <span class="highlight"><strong>а 95% считают его критически важным.</strong></span> При этом ≈60% намерены увеличить бюджеты на видео-маркетинг (еще 25% — оставить их на прежнем уровне). В свою очередь <span class="highlight"><strong>93% компаний</strong></span> признают видео «жизненно важным» для своей стратегии. Тем не менее, большинство компаний выпускают видео нерегулярно — нехватка ресурсов остаётся ключевым барьером, и лишь небольшая часть создаёт больше 3–4 роликов ежемесячно.</p>
+
+            <h2>Типы монетизации</h2>
+            <p>Ниже приведены основные модели монетизации в AI-видео: услуги, продукты, платформы и контент. Каждый из них позволяет зарабатывать по-разному, от разовых платежей до подписок и комиссий:</p>
+
+            <div class="monetization-section">
+                <h3>Услуги (Service-based)</h3>
+                <p>Предоставление видео «под ключ».</p>
+                <ul>
+                    <li>Например, выполнение одного проекта «под ключ» может стоить порядка <span class="price-tag">$500–5,000</span> (≈40–400 тыс. руб) в зависимости от сложности и длительности ролика.</li>
+                    <li>Ежемесячный <strong>retainer</strong> (обслуживание/абонентское сопровождение клиентов) оценивается в <span class="price-tag">$1,000–10,000/мес</span> (≈80–800 тыс. руб).</li>
+                    <li><strong>White-label услуги</strong> (производство видео от имени агенства-партнёра) могут приносить от <span class="price-tag">$2,000 до $20,000/мес</span> (≈160–1,600 тыс. руб) и более для крупных проектов.</li>
+                </ul>
+            </div>
+
+            <div class="monetization-section">
+                <h3>Продукты (Product-based)</h3>
+                <p>Шаблоны, курсы и сообщества.</p>
+                <ul>
+                    <li><strong>Шаблоны видеороликов или анимаций</strong> продаются по единоразовой цене <span class="price-tag">$29–297</span> (≈2,3–24 тыс. руб).</li>
+                    <li><strong>Платные сообщества (membership)</strong> с AI-материалами обычно стоят <span class="price-tag">$47–197/мес</span> (≈3,8–16 тыс. руб).</li>
+                    <li><strong>Онлайн-курсы и мастер-классы по видеопродакшену</strong> стоят <span class="price-tag">$297–2,997</span> (≈24–240 тыс. руб) за курс в зависимости от глубины контента и поддержки.</li>
+                </ul>
+            </div>
+
+            <div class="monetization-section">
+                <h3>Платформы (Platform-based)</h3>
+                <p>SaaS-решения и маркетплейсы.</p>
+                <ul>
+                    <li><strong>Месячная подписка на AI платформы</strong> для создания видео обычно <span class="price-tag">$29–299/мес</span> (≈2,3–24 тыс. руб) за пользователя (например, Runway, Synthesia и др.). Маркетплейсы шаблонов берут комиссию за каждый шаблон (обычно 20–40% от цены) или продают пакеты доступов.</li>
+                </ul>
+            </div>
+
+            <div class="monetization-section">
+                <h3>Контент (Content-based)</h3>
+                <p>Получение дохода на публикуемом контенте.</p>
+                <ul>
+                    <li>Так, <strong>YouTube AdSense</strong> приносит около <span class="price-tag">$500–700</span> за 100,000 просмотров (в среднем), что равно ≈40–60 тыс. руб, хотя в прибыльных нишах доходит и до нескольких тысяч (до $5,000).</li>
+                    <li><strong>Спонсорские интеграции</strong> (прямые рекламодатели в видео) обычно оцениваются в <span class="price-tag">$1,000–5,000</span> за видео для среднего канала (≈80–400 тыс. руб) и могут достигать десятков тысяч долларов для популярных авторов (до $50,000+).</li>
+                    <li><strong>Партнёрские программы</strong> (affiliate) дают комиссию ≈20–40% от продаж рекомендуемых продуктов (обычно recurring премия).</li>
+                </ul>
+            </div>
+
+            <h2>Где мы фокусируемся</h2>
+            
+            <div class="focus-section">
+                <p>Во время нашего челленджа делаем ставку на <strong>сервисную модель</strong> (предоставление услуг). Почему именно она:</p>
+                <ul>
+                    <li>Быстрый путь к первым деньгам: первые сделки можно заключить уже за <strong>7–14 дней.</strong></li>
+                    <li>Не требует собственной аудитории (в отличие от контент-монетизации), можно начинать с клиентов любого канала.</li>
+                    <li>Не требует разработки ПО или продукта (в отличие от SaaS-платформ), достаточно освоить инструменты AI-видео.</li>
+                    <li>Помогает быстро проверить компетенции: вы отработаете навыки продакшена и коммуникации с клиентами прежде, чем масштабироваться</li>
+                </ul>
+            </div>
+
+            <div class="strategy-box">
+                <h3>Стратегия 90 дней</h3>
+                <ul>
+                    <li>
+                        <strong>День 1–30:</strong> найти первых клиентов на AI-видео (например, с помощью личных контактов и соцсетей), выполнить 1–3 заказа и заработать свои первые деньги.
+                    </li>
+                    <li>
+                        <strong>День 31–60:</strong> выстроить процесс (скрипты, шаблоны), начать делегировать рутинные задачи, оптимизировать workflow.
+                    </li>
+                    <li>
+                        <strong>День 61–90:</strong> расширять команду, превращаться в небольшое агенство или предлагать дополнительные услуги/сервисы.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="task-box">
+                <h3>Задание</h3>
+                <p>Изучите приведённую аналитику: какая модель монетизации кажется вам наиболее перспективной после челленджа?</p>
+                <p>Напишите об этом в <a href="https://t.me/c/2338065673/11434" target="_blank">Чат Заработок на ИИ и Контенте</a>.</p>
+            </div>
+
+            <div class="sources-section">
+                <h3>Источники</h3>
+                <p style="margin-bottom: 20px; color: rgba(255, 255, 255, 0.8);">Отраслевые исследования рынка видеопродакшена и AI-видео, обзоры смежных сервисов и маркетплейсов, а также статистика по видеомаркетингу.</p>
+                
+                <div class="sources-category">
+                    <div class="sources-category-title">Исследования рынка</div>
+                    <ul class="sources-list">
+                        <li><a href="https://www.grandviewresearch.com/industry-analysis/video-production-market-report" target="_blank">Grand View Research - Video Production Market</a></li>
+                        <li><a href="https://www.marketresearchfuture.com/reports/video-production-market-33339" target="_blank">Market Research Future - Video Production Market</a></li>
+                        <li><a href="https://www.precedenceresearch.com/artificial-intelligence-video-market" target="_blank">Precedence Research - AI Video Market</a></li>
+                        <li><a href="https://www.grandviewresearch.com/industry-analysis/artificial-intelligence-ai-video-market-report" target="_blank">Grand View Research - AI Video Market</a></li>
+                    </ul>
+                </div>
+
+                <div class="sources-category">
+                    <div class="sources-category-title">Стоимость и анализ производства</div>
+                    <ul class="sources-list">
+                        <li><a href="https://dmakproductions.com/blog/how-much-does-video-production-cost/" target="_blank">DMAK Productions - Video Production Cost</a></li>
+                        <li><a href="https://www.paracast.io/blog/ai-vs-traditional-video-production-cost-and-time-analysis/" target="_blank">Paracast - AI vs Traditional Video Production</a></li>
+                    </ul>
+                </div>
+
+                <div class="sources-category">
+                    <div class="sources-category-title">Статистика видеомаркетинга</div>
+                    <ul class="sources-list">
+                        <li><a href="https://www.demandsage.com/video-marketing-statistics/" target="_blank">DemandSage - Video Marketing Statistics</a></li>
+                        <li><a href="https://www.siegemedia.com/strategy/video-marketing-statistics" target="_blank">Siegemedia - Video Marketing Statistics</a></li>
+                    </ul>
+                </div>
+
+                <div class="sources-category">
+                    <div class="sources-category-title">Монетизация контента</div>
+                    <ul class="sources-list">
+                        <li><a href="https://views4you.com/blog/how-much-does-youtube-pay-for-100k-views/" target="_blank">Views4You - YouTube Payment for 100k Views</a></li>
+                        <li><a href="https://sponsorship.so/blog/how-much-do-youtube-sponsors-pay" target="_blank">Sponsorship.so - YouTube Sponsorship Rates</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 AI Guild | Генеративный контент</p>
+        </div>
+    </div>
+</body>
+</html>

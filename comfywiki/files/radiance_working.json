@@ -1,0 +1,1150 @@
+{
+  "id": "fc4354bf-79be-4111-9f52-5cc58ecf9ff0",
+  "revision": 0,
+  "last_node_id": 74,
+  "last_link_id": 102,
+  "nodes": [
+    {
+      "id": 13,
+      "type": "RadianceDepthMapGenerator",
+      "pos": [
+        -10124.78855696992,
+        5871.560662563247
+      ],
+      "size": [
+        269.921875,
+        166.14583333333334
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 53
+        }
+      ],
+      "outputs": [
+        {
+          "name": "depth_map",
+          "type": "IMAGE",
+          "links": [
+            83
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "fxtdstudios/radiance",
+        "ver": "8d0100191b8076c513d47de55e43d270e9802b09",
+        "Node name for S&R": "RadianceDepthMapGenerator",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "Large (335M - Best)",
+        true,
+        false,
+        0,
+        true
+      ],
+      "color": "#232330",
+      "bgcolor": "#0f0f14"
+    },
+    {
+      "id": 30,
+      "type": "RadianceVAEDecode",
+      "pos": [
+        -10705.496097030778,
+        5632.790460716782
+      ],
+      "size": [
+        379.1666666666667,
+        338
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 91
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 45
+        },
+        {
+          "name": "alpha",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            53,
+            65,
+            70,
+            95
+          ]
+        },
+        {
+          "name": "metadata",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "latent_format",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "aux_id": "fxtdstudios/radiance",
+        "ver": "8d0100191b8076c513d47de55e43d270e9802b09",
+        "Node name for S&R": "RadianceVAEDecode",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "ACEScg",
+        "1536",
+        256,
+        0,
+        "Compress (Log)",
+        false,
+        16,
+        "",
+        true,
+        "Linear",
+        "sequential"
+      ],
+      "color": "#232330",
+      "bgcolor": "#0f0f14"
+    },
+    {
+      "id": 31,
+      "type": "RadianceSaveEXR",
+      "pos": [
+        -9207.743545326604,
+        4739.399308418925
+      ],
+      "size": [
+        333.33333333333337,
+        506.45833333333337
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 65
+        },
+        {
+          "name": "project_config",
+          "shape": 7,
+          "type": "RADIANCE_PROJECT",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "file_paths",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "folder_path",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "aux_id": "fxtdstudios/radiance",
+        "ver": "8d0100191b8076c513d47de55e43d270e9802b09",
+        "Node name for S&R": "RadianceSaveEXR",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "Radiance",
+        "EXR",
+        "32-bit Float",
+        "ZIP",
+        "ACEScg",
+        "Linear (ACEScg)",
+        "None",
+        false,
+        "",
+        1,
+        4,
+        true,
+        "",
+        "ACEScg"
+      ],
+      "color": "#232330",
+      "bgcolor": "#0f0f14"
+    },
+    {
+      "id": 38,
+      "type": "RadianceNukeBridge",
+      "pos": [
+        -9214.98138216686,
+        4267.851051877991
+      ],
+      "size": [
+        319.4010416666667,
+        365.3125
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 70
+        },
+        {
+          "name": "depth_map",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "name": "nuke_status",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "aux_id": "fxtdstudios/radiance",
+        "ver": "8d0100191b8076c513d47de55e43d270e9802b09",
+        "Node name for S&R": "RadianceNukeBridge",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "127.0.0.1",
+        1986,
+        "RadianceStream",
+        "Always",
+        "linear",
+        "32-bit Float",
+        "ZIP",
+        true,
+        true,
+        1001,
+        ""
+      ],
+      "color": "#232330",
+      "bgcolor": "#0f0f14"
+    },
+    {
+      "id": 49,
+      "type": "FXTD_RadianceViewer",
+      "pos": [
+        -9370.64971646765,
+        5688.860786421059
+      ],
+      "size": [
+        4176.953125,
+        2453.7239583333335
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE,VIDEO",
+          "link": 95
+        },
+        {
+          "name": "compare_image",
+          "shape": 7,
+          "type": "IMAGE,VIDEO",
+          "link": null
+        },
+        {
+          "name": "zdepth",
+          "shape": 7,
+          "type": "IMAGE,VIDEO",
+          "link": 83
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "metadata",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "aux_id": "fxtdstudios/radiance",
+        "ver": "8d0100191b8076c513d47de55e43d270e9802b09",
+        "Node name for S&R": "FXTD_RadianceViewer",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "16-bit + HDR Data",
+        ""
+      ],
+      "color": "#232330",
+      "bgcolor": "#0f0f14"
+    },
+    {
+      "id": 52,
+      "type": "RadianceResolution",
+      "pos": [
+        -13584.238015833662,
+        5237.094283403447
+      ],
+      "size": [
+        567.5911458333334,
+        907.5130208333334
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            84
+          ]
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "channels",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "info",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "aux_id": "fxtdstudios/radiance",
+        "ver": "8d0100191b8076c513d47de55e43d270e9802b09",
+        "Node name for S&R": "RadianceResolution",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "Flux 16:9 (1360×768)",
+        1024,
+        1024,
+        "As Preset",
+        "Auto (Flux 16ch)",
+        1,
+        1,
+        0
+      ],
+      "color": "#232330",
+      "bgcolor": "#0f0f14"
+    },
+    {
+      "id": 67,
+      "type": "MarkdownNote",
+      "pos": [
+        -8803.60674340506,
+        4276.616664332602
+      ],
+      "size": [
+        725.4166666666667,
+        343.4635416666667
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "Nuke Bridge Setup\nConnect ComfyUI to Foundry Nuke for real-time image and depth map transfer.\n\n1\nCopy the Server Script\nCopy start_nuke_server.py from the Radiance scripts/ folder to a location Nuke can access (e.g. your .nuke directory):\n\nradiance/scripts/start_nuke_server.py  →  ~/.nuke/start_nuke_server.py\n2\nSource the Script in Nuke\nOpen Nuke's Script Editor and run:\n\nexec(open(\"/path/to/start_nuke_server.py\").read())\nOr add this line to your menu.py / init.py so it starts automatically.\n\n3\nConfigure IP & Port\nBy default, the bridge listens on 127.0.0.1:8765. To change this, edit the variables at the top of start_nuke_server.py:\n\nHOST = \"127.0.0.1\"\nPORT = 8765\nMake sure the same IP/port is set in the RadianceNukeBridge node inside ComfyUI.\n\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 68,
+      "type": "MarkdownNote",
+      "pos": [
+        -8850.548454320427,
+        5047.78387701278
+      ],
+      "size": [
+        277.31770833333337,
+        186.19791666666669
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "use subfolder as absulate path like \n\nD:\\output"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 69,
+      "type": "MarkdownNote",
+      "pos": [
+        -10702.901201863246,
+        5439.247251955022
+      ],
+      "size": [
+        277.3046875,
+        136.19791666666669
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "enable rhdr and use target stops from 12 to 16\nand compress(log)\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 70,
+      "type": "MarkdownNote",
+      "pos": [
+        -10141.291611657265,
+        5720.520544134508
+      ],
+      "size": [
+        277.2916666666667,
+        88
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "depth map will download automaticly\n"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 71,
+      "type": "MarkdownNote",
+      "pos": [
+        -11690.875564567212,
+        5224.179999224142
+      ],
+      "size": [
+        277.2916666666667,
+        88
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "Use the Dynamic Sampler to accelerate generation while preserving fine detail, structural accuracy, and overall image fidelity."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 72,
+      "type": "MarkdownNote",
+      "pos": [
+        -12952.247506250254,
+        5505.183478468888
+      ],
+      "size": [
+        277.27864583333337,
+        88
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "use the radiane resolution with open latent "
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 74,
+      "type": "MarkdownNote",
+      "pos": [
+        -9682.96141927452,
+        8000.452228322651
+      ],
+      "size": [
+        277.3046875,
+        136.19791666666669
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "check the rich featuers in the radiance viewer, color grading HUD and realtime defoucs"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 73,
+      "type": "MarkdownNote",
+      "pos": [
+        -13934.938278309713,
+        4387.806780482634
+      ],
+      "size": [
+        277.265625,
+        88
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "You can use any model, but we tested it with Flux models."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 6,
+      "type": "RadianceUnifiedLoader",
+      "pos": [
+        -13597.207735903801,
+        4342.460210075386
+      ],
+      "size": [
+        585.6770833333334,
+        822
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "lora_stack",
+          "shape": 7,
+          "type": "LORA_STACK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            101
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            96
+          ]
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            45
+          ]
+        },
+        {
+          "name": "CONTROLNET",
+          "type": "CONTROL_NET",
+          "links": null
+        },
+        {
+          "name": "lora_stack",
+          "type": "LORA_STACK",
+          "links": []
+        },
+        {
+          "name": "load_info",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "latent_format",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "model_meta",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "aux_id": "fxtdstudios/radiance",
+        "ver": "8d0100191b8076c513d47de55e43d270e9802b09",
+        "Node name for S&R": "RadianceUnifiedLoader",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "→ Flux Dev",
+        "flux1-dev.safetensors",
+        "default",
+        "flux",
+        "ae.safetensors",
+        "clip_l.safetensors",
+        "None",
+        "t5xxl_fp16.safetensors",
+        "None",
+        "default",
+        "cpu_offload",
+        "None",
+        0,
+        1,
+        "None",
+        0,
+        1,
+        "None",
+        0,
+        1,
+        "None",
+        1,
+        0,
+        0,
+        "On",
+        "On",
+        "raise"
+      ],
+      "color": "#232330",
+      "bgcolor": "#0f0f14"
+    },
+    {
+      "id": 62,
+      "type": "RadianceCinematicPromptEncoder",
+      "pos": [
+        -12389.409062116922,
+        5328.628950112482
+      ],
+      "size": [
+        385.75520833333337,
+        1062
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 96
+        },
+        {
+          "name": "image_ref",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            97
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            98
+          ]
+        },
+        {
+          "name": "image_ref",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "positive_text",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "negative_text",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "token_count",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "aux_id": "fxtdstudios/radiance",
+        "ver": "8d0100191b8076c513d47de55e43d270e9802b09",
+        "Node name for S&R": "RadianceCinematicPromptEncoder",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "Cinematic Rembrandt-style portrait of an elderly man with deep-set wrinkles and a grey beard, dark minimalist background, dramatic side lighting carving the jawline, 105mm macro lens, 8k resolution, photorealistic, deep shadows",
+        "→ Classic Hollywood",
+        "A",
+        "→ Quentin Tarantino",
+        "flux",
+        "Medium (Flux/T5 256)",
+        "Medium Shot (MS)",
+        "Panavision Panaflex Gold II (35mm)",
+        "40mm Semi-Wide",
+        "f/2.8 (Cinematic Separation)",
+        "High-Key Lighting",
+        "Vintage Kodachrome Look",
+        "Kodak Vision3 500T",
+        "None",
+        "Vibrant High Contrast",
+        "2.39:1 (Anamorphic Scope)",
+        "None",
+        "",
+        0.5,
+        "balanced",
+        "",
+        2024,
+        "Standard",
+        "",
+        0,
+        "",
+        "Off",
+        "Off",
+        "Medium Shot (MS) of Cinematic Rembrandt-style portrait of an elderly man with deep-set wrinkles and a grey beard, dark minimalist background, dramatic side lighting carving the jawline, 105mm macro lens, 8k resolution, photorealistic, deep shadows.. Shot on Panavision Panaflex Gold II (35mm) with 40...",
+        null,
+        null,
+        null
+      ],
+      "color": "#232330",
+      "bgcolor": "#0f0f14"
+    },
+    {
+      "id": 8,
+      "type": "RadianceSamplerPro",
+      "pos": [
+        -11727.472574528418,
+        5357.340711275068
+      ],
+      "size": [
+        544.921875,
+        990
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 101
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 97
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 98
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 84
+        },
+        {
+          "name": "refiner_model",
+          "shape": 7,
+          "type": "MODEL",
+          "link": null
+        },
+        {
+          "name": "noise_override",
+          "shape": 7,
+          "type": "LATENT",
+          "link": null
+        },
+        {
+          "name": "sigmas_override",
+          "shape": 7,
+          "type": "SIGMAS",
+          "link": null
+        },
+        {
+          "name": "positive_2",
+          "shape": 7,
+          "type": "CONDITIONING",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            91
+          ]
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "links": null
+        },
+        {
+          "name": "sigma_report",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "latent_meta",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "aux_id": "fxtdstudios/radiance",
+        "ver": "8d0100191b8076c513d47de55e43d270e9802b09",
+        "Node name for S&R": "RadianceSamplerPro",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.7",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "→ Flux Cinematic (30 steps)",
+        20,
+        0,
+        200,
+        1,
+        "euler",
+        "Phase-Shift (Euler→DPM)",
+        0.4,
+        "simple",
+        "Auto (Match Steps)",
+        1,
+        1,
+        3.5,
+        "Dynamic (Creative Start/End)",
+        true,
+        false,
+        921661783662562,
+        "randomize",
+        0,
+        "auto",
+        0,
+        "None",
+        1,
+        "None",
+        "Gaussian",
+        "Off",
+        0.5,
+        "Auto",
+        false,
+        128,
+        16,
+        "feather",
+        20,
+        ""
+      ],
+      "color": "#232330",
+      "bgcolor": "#0f0f14"
+    }
+  ],
+  "links": [
+    [
+      45,
+      6,
+      2,
+      30,
+      1,
+      "VAE"
+    ],
+    [
+      53,
+      30,
+      0,
+      13,
+      0,
+      "IMAGE"
+    ],
+    [
+      65,
+      30,
+      0,
+      31,
+      0,
+      "IMAGE"
+    ],
+    [
+      70,
+      30,
+      0,
+      38,
+      0,
+      "IMAGE"
+    ],
+    [
+      83,
+      13,
+      0,
+      49,
+      2,
+      "IMAGE"
+    ],
+    [
+      84,
+      52,
+      0,
+      8,
+      3,
+      "LATENT"
+    ],
+    [
+      91,
+      8,
+      0,
+      30,
+      0,
+      "LATENT"
+    ],
+    [
+      95,
+      30,
+      0,
+      49,
+      0,
+      "IMAGE"
+    ],
+    [
+      96,
+      6,
+      1,
+      62,
+      0,
+      "CLIP"
+    ],
+    [
+      97,
+      62,
+      0,
+      8,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      98,
+      62,
+      1,
+      8,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      101,
+      6,
+      0,
+      8,
+      0,
+      "MODEL"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 5,
+      "title": "dataflow",
+      "bounding": [
+        -12517.417718805022,
+        5202.610344273771,
+        2802.921753653812,
+        987.7303756535428
+      ],
+      "color": "#3a3a3a",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 6,
+      "title": "output",
+      "bounding": [
+        -9328.24380991981,
+        4034.244347948959,
+        800.5042367919077,
+        1359.1693728833798
+      ],
+      "color": "#3a3a3a",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 9,
+      "title": "IO",
+      "bounding": [
+        -13638.87180681343,
+        4250.793621004313,
+        669.0104166666667,
+        1953.136143876565
+      ],
+      "color": "#2a2a5a",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.23438277029867266,
+      "offset": [
+        11224.047411790843,
+        -5318.065564403929
+      ]
+    },
+    "workflowRendererVersion": "LG",
+    "frontendVersion": "1.41.20",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "ue_links": [],
+    "links_added_by_ue": []
+  },
+  "version": 0.4
+}

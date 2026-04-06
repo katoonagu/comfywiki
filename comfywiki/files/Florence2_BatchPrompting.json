@@ -1,0 +1,589 @@
+{
+  "id": "1ea33698-2aed-4af3-b40b-3f15e3612ca3",
+  "revision": 0,
+  "last_node_id": 61,
+  "last_link_id": 120,
+  "nodes": [
+    {
+      "id": 4,
+      "type": "ShowText|pysssss",
+      "pos": [
+        500,
+        -380
+      ],
+      "size": [
+        260,
+        526
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 36
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": [
+            73
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-custom-scripts",
+        "ver": "1.2.5",
+        "Node name for S&R": "ShowText|pysssss",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.2.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "A woman with long, straight black hair and bangs, wearing a white wedding dress with intricate lace detailing, holding a green lantern in front of her face. The background is dark, creating a mysterious and eerie atmosphere. The woman has a pale complexion and is looking directly at the camera with a contemplative expression. The image has a soft, ethereal quality with a muted color palette. The overall mood is somber and melancholic.",
+        "Photo of a woman with dark skin, wearing a black witch hat with a silver star on top, holding a teacup with pink glitter in front of her face. She has long black hair and is looking directly at the camera with a serious expression. The background is a starry night sky with blue and silver confetti scattered around. The lighting is soft and warm, creating a magical atmosphere. The woman has a slender physique and is wearing minimal makeup. The overall mood is mysterious and enchanting.",
+        "Photo of a young man with short brown hair, sitting in a field of tall grass at night, holding a lantern in his right hand. He is wearing a white button-down shirt and dark pants. The lighting is soft and warm, creating a peaceful atmosphere. The man has a serious expression on his face. The background is blurred, but it appears to be a grassy field with small white flowers. The overall mood is serene and contemplative.",
+        "Photo of a young woman with fair skin and wavy brown hair, wearing a black beret and a luxurious fur stole. She is looking directly at the camera with a neutral expression. The background is a stark white, with snowflakes gently falling around her. The lighting is soft and natural, highlighting her features and the texture of her fur. The overall mood is somber and contemplative.",
+        "A man with short, dark hair, wearing a white sleeveless shirt and black pants, sitting in the driver's seat of a vintage pickup truck at night, drinking from a bottle. The truck's headlights are glowing red, creating a striking contrast against the dark, starry sky in the background. The man has a relaxed, confident expression, with his eyes closed and his mouth slightly open as he takes a sip from the bottle. He is positioned in the center of the image, with the truck in the foreground. The lighting is dramatic, with red and black hues creating a moody atmosphere.",
+        "Photo of a young woman with pale skin and long, silver hair, sitting on a white couch. She has a slender physique and is wearing a black crop top with cutouts, fishnet stockings, and a silver chain necklace. Her outfit is completed with a black belt and black thigh-high boots. The background is a plain white wall. The lighting is soft and even, highlighting her features. The image has a gothic, edgy aesthetic."
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 29,
+      "type": "ImpactListBridge",
+      "pos": [
+        770,
+        -380
+      ],
+      "size": [
+        147.064453125,
+        26
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "list_input",
+          "type": "*",
+          "link": 73
+        }
+      ],
+      "outputs": [
+        {
+          "name": "list_output",
+          "shape": 6,
+          "type": "*",
+          "links": [
+            74
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactListBridge",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.2.2"
+        }
+      },
+      "widgets_values": [],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 2,
+      "type": "DownloadAndLoadFlorence2Model",
+      "pos": [
+        -420,
+        -140
+      ],
+      "size": [
+        320,
+        130
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "lora",
+          "shape": 7,
+          "type": "PEFTLORA",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "florence2_model",
+          "type": "FL2MODEL",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-florence2",
+        "ver": "1.0.6",
+        "Node name for S&R": "DownloadAndLoadFlorence2Model",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.2.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "MiaoshouAI/Florence-2-large-PromptGen-v2.0",
+        "bf16",
+        "sdpa",
+        false
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 18,
+      "type": "Image Save",
+      "pos": [
+        180,
+        -380
+      ],
+      "size": [
+        306.1015625,
+        626
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 35
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "files",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "cnr_id": "was-node-suite-comfyui",
+        "ver": "ea935d1044ae5a26efa54ebeb18fe9020af49a45",
+        "Node name for S&R": "Image Save",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.2.2"
+        }
+      },
+      "widgets_values": [
+        "[time(%Y-%m-%d)]",
+        "ComfyUI",
+        "_",
+        4,
+        "false",
+        "png",
+        300,
+        100,
+        "true",
+        "false",
+        "false",
+        "false",
+        "true",
+        "true",
+        "true"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 58,
+      "type": "Note",
+      "pos": [
+        -666.5718383789062,
+        -300.83953857421875
+      ],
+      "size": [
+        210,
+        88
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Путь к папке: directory",
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.2.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "C:\\Users\\Smysh\\Desktop\\"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 36,
+      "type": "Text List to Text",
+      "pos": [
+        770,
+        -290
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_list",
+          "type": "LIST",
+          "link": 74
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            118
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "was-node-suite-comfyui",
+        "ver": "ea935d1044ae5a26efa54ebeb18fe9020af49a45",
+        "Node name for S&R": "Text List to Text",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.2.2"
+        }
+      },
+      "widgets_values": [
+        "\\n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 3,
+      "type": "Florence2Run",
+      "pos": [
+        -90,
+        -380
+      ],
+      "size": [
+        260,
+        364
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 12
+        },
+        {
+          "name": "florence2_model",
+          "type": "FL2MODEL",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": []
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "name": "caption",
+          "type": "STRING",
+          "links": [
+            36
+          ]
+        },
+        {
+          "name": "data",
+          "type": "JSON",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-florence2",
+        "ver": "1.0.6",
+        "Node name for S&R": "Florence2Run",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.2.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "",
+        "detailed_caption",
+        true,
+        false,
+        512,
+        3,
+        true,
+        "",
+        1,
+        "fixed"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 59,
+      "type": "Note",
+      "pos": [
+        1080,
+        -170
+      ],
+      "size": [
+        370.62591552734375,
+        90.00782012939453
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Путь к папке на сохранение: directory",
+      "properties": {
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.2.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "C:\\Users\\Smysh\\Desktop\\"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 12,
+      "type": "LoadImagesFromDir //Inspire",
+      "pos": [
+        -420,
+        -380
+      ],
+      "size": [
+        320,
+        194
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            12,
+            35
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImagesFromDir //Inspire",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.2.2",
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "C:\\Users\\Smysh\\Desktop\\InputImage\\dataset",
+        0,
+        0,
+        false,
+        "None"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 23,
+      "type": "Save Text File",
+      "pos": [
+        770,
+        -170
+      ],
+      "size": [
+        270,
+        202
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 118
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "was-node-suite-comfyui",
+        "ver": "ea935d1044ae5a26efa54ebeb18fe9020af49a45",
+        "Node name for S&R": "Save Text File",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {},
+          "version": "7.2.2"
+        }
+      },
+      "widgets_values": [
+        "C:\\Users\\Smysh\\Desktop\\InputImage\\dataset\\prompts",
+        "prompts",
+        "_",
+        4,
+        ".txt",
+        "utf-8",
+        ""
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    }
+  ],
+  "links": [
+    [
+      2,
+      2,
+      0,
+      3,
+      1,
+      "FL2MODEL"
+    ],
+    [
+      12,
+      12,
+      0,
+      3,
+      0,
+      "IMAGE"
+    ],
+    [
+      35,
+      12,
+      0,
+      18,
+      0,
+      "IMAGE"
+    ],
+    [
+      36,
+      3,
+      2,
+      4,
+      0,
+      "STRING"
+    ],
+    [
+      73,
+      4,
+      0,
+      29,
+      0,
+      "*"
+    ],
+    [
+      74,
+      29,
+      0,
+      36,
+      0,
+      "LIST"
+    ],
+    [
+      118,
+      36,
+      0,
+      23,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Florence2 Batch Prompting (Fixed Filenames)",
+      "bounding": [
+        -440,
+        -460,
+        1510,
+        720
+      ],
+      "color": "#000000",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "ds": {
+      "scale": 0.6970342594341555,
+      "offset": [
+        963.2399186528727,
+        679.4803446000348
+      ]
+    },
+    "frontendVersion": "1.27.10",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}

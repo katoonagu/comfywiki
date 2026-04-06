@@ -1,0 +1,117 @@
+BACKGROUND SWAP
+Replace the background with a simple 3d cartoon lush jungle, keep the bunny’s face, outfit, pose, and camera angle unchanged.
+Replace the background with a cozy 3D cartoon cabin interior, keep the character identical and keep the same framing and scale.
+
+TIME, WEATHER, MOOD
+Change the scene to a 3D cartoon nighttime with soft moonlight and gentle rim light, keep the character and composition unchanged.
+Add a light snowfall with subtle flakes and soft winter haze, mountains covered in snow in the distance, keep the bunny and all clothing details unchanged.
+
+OUTFIT, ACCESSORIES
+Change the outfit to a bright yellow raincoat with matching hood, keep the bunny’s identity, pose, and proportions the same.
+Replace the current backpack with a huge bright yellow traveler backpack. Keep the character, outfit, pose and proportions the same. 
+
+POSE, EXPRESSION
+Make the bunny run forward, mid-stride, with a natural running pose. Keep the same character design, outfit, and lighting.
+Change the expression to sad and crying, with teary eyes and visible tears on the cheeks. Keep the rest of the image unchanged.
+
+STYLE TRANSFORM
+Convert the image into a watercolor illustration with soft edges and paper texture, keep the same composition and character design.
+Convert the image into a clean cel-shaded cartoon style with bold outlines, keep pose, outfit shapes, and framing the same.
+
+MATERIAL, TEXTURE
+Change the entire outfit and all straps, belts, and boots to uniform shiny black leather, pure black with no brown or tan anywhere. Keep the same shapes, pose, and framing.
+Make the entire outfit look like knitted fabric, keep the bunny’s identity, pose, same green colors and proportions the same, only change the outfit material.
+
+ADD OR REMOVE PROPS
+
+Add a small lantern in the bunny’s paw emitting warm light, keep the pose and all other elements unchanged.
+Remove the backpack and all straps completely, keep only the belt, fill the area naturally. Keep the bunny, background, and outfit unchanged.
+Remove the backpack and all previous clothing. Dress the bunny in a Hawaiian beach outfit with a straw hat and flip flops, hands on hips. Keep the character, pose, background, and lighting unchanged.
+
+CROP
+Zoom in to a chest-up portrait crop while keeping the character centered, preserve identity and details.
+
+COLOR GRADING
+Apply a warm cinematic color grade with softer highlights and gentle contrast, keep all objects and shapes unchanged.
+Apply a pastel color palette while keeping details sharp and readable, keep the character and composition unchanged.
+
+TEXT, LABELS
+Add a small badge on the hat that reads "RANGER" in clear letters, keep everything else unchanged.
+Make the bunny hold a wooden sign with the text "PIXA" clearly written on it. Keep the character, pose, background, and lighting unchanged.
+
+CAMERA ANGLE
+Show a perfect 90-degree side view (profile) of the same bunny character, keep the exact same outfit, backpack, materials, cute 3D style, and lighting, only change the camera angle to side view.
+
+---
+
+BRANDING MOCKUPS (PUT LOGO ON THINGS)
+Place this logo as a crisp black print on a white ceramic coffee mug mockup, keep the logo shape perfectly unchanged and centered.
+Place the provided orange logo on the front of a matte black kraft coffee bag, keep the logo shape and proportions perfectly unchanged. Front view product photography on a wooden tabletop with an exotic vibe, warm natural light, shallow depth of field, realistic shadows.
+Create a lifestyle photo of a woman holding a matte black tote bag over her shoulder, only show the shoulder, arm and the tote bag (no face or full body). Place the provided orange logo centered on the tote bag as a clean single-color print; keep the logo shape and proportions perfectly unchanged. Natural warm light, shallow depth of field, realistic fabric folds and shadows.
+
+3D, METAL, MATERIAL VERSIONS
+Convert the provided logo into a 3D extruded emblem with soft bevels in polished gold metal, keep the logo silhouette perfectly unchanged. Front view, centered, on a dark matte background with subtle studio reflections and a soft shadow, high-end product render.
+Make a glossy black chrome 3D logo, keep the silhouette unchanged.
+Make a frosted glass 3D logo with soft translucency, keep the exact shape and proportions.
+
+COLORWAYS, STYLE VARIATIONS
+Create an inverted version: white logo on solid black background, keep the design unchanged.
+Create a gradient version with subtle metallic gold gradient, keep the logo shape unchanged.
+Create a stamped ink version with slight realistic ink bleed, keep the logo readable and shape consistent.
+
+LOGO IN ENVIRONMENTS (SIGNAGE, WALLS, SCENES)
+Paint this logo as a large mural on a concrete wall with realistic texture, keep the logo shape unchanged.
+Create a macro close-up photo of a black fabric flag showing the provided orange logo printed on the textile; keep the logo shape and proportions perfectly unchanged and crisp (no distortion). Visible weave texture, slight fabric ripples, realistic ink sitting on fibers, shallow depth of field, soft directional light, high detail.
+
+PREMIUM FINISHES (FOIL, EMBOSS, SPOT UV)
+Create a macro close-up photo of the provided logo gold-foil stamped on matte black paper, keep the logo shape and proportions perfectly unchanged. Show realistic foil shine, subtle emboss depth, tiny paper fibers, sharp edges, shallow depth of field, soft directional light with specular highlights, high detail.
+Create a macro close-up photo of the provided logo silver-foil stamped on deep navy paper, keep the logo shape and proportions perfectly unchanged. Show realistic metallic foil shine, subtle emboss depth, visible paper fibers, crisp edges, shallow depth of field, soft directional light with clean specular highlights, high detail.
+Create a macro close-up photo of the provided logo printed with metallic ink on premium matte black paper, keep the logo shape and proportions perfectly unchanged. Subtle sparkle flecks in the ink, realistic ink texture, crisp edges, visible paper fibers, shallow depth of field, soft directional light with gentle specular shimmer, high detail.
+
+---
+COLORIZE, KEEP LINE ART
+Colorize this sketch into a clean flat-color cartoon with soft cel shading, keep the exact line art, pose, and facial expression unchanged.
+
+INK + WATERCOLOUR LOOK
+Turn this sketch into an ink-and-watercolor illustration with light washes and paper texture, keep the character design and line placement the same. White bunny, red clothes, green hills, blue sky.
+
+CLEAN VECTOR STYLE
+Convert this sketch into a crisp vector illustration with smooth outlines and minimal shading, keep the same composition and proportions.
+
+---
+
+
+BACKGROUND SWAP
+Replace the plain background with a modern corporate office with soft blur, keep the woman’s face, hair, expression, and suit unchanged.
+Replace the background with a dark charcoal studio backdrop with subtle gradient, keep the subject unchanged.
+
+LIGHTING, STUDIO LOOK
+Change lighting to a clean high-key studio setup with soft even light, keep facial features and pose unchanged.
+Change lighting to dramatic Rembrandt lighting from camera-left, keep identity and pose unchanged.
+
+WARDROBE, COLOR TWEAK
+Change the blazer to deep navy while keeping fabric texture realistic, keep her face, hair, and pose unchanged.
+Change the blouse to a soft pastel blue silk, keep everything else unchanged.
+
+EXPRESSION, MICRO EDITS
+Change expression to a warm professional smile, keep eyes, face shape, and head angle unchanged.
+Make the woman happy, keep everything else unchanged.
+
+HAIR
+Change hairstyle to a sleek low bun, keep facial identity and makeup style unchanged.
+Change hair color to blonde, keep facial identity and makeup style unchanged.
+
+MAKEUP, RETOUCH
+Apply natural beauty retouch: reduce shine, soften minor skin texture, keep pores realistic, keep identity unchanged.
+Add subtle professional makeup with slightly stronger eyeliner and natural lip color, keep identity unchanged.
+Add professional fantasy makeup in purple and blue tones. Keep the subject’s identity unchanged. 
+
+ACCESSORIES
+Add thin gold rim glasses, keep face shape, eyes, and expression unchanged.
+Add simple pearl necklace, keep outfit and pose unchanged.
+
+POSE + ENVIRONMENT
+Place her seated at a desk with a laptop, typing naturally, keep identity unchanged.
+Place her walking outdoors in a city street, candid business photo, looking to the side, keep identity unchanged.
+Place her standing near a window, talking on a phone with natural gesture, keep identity unchanged.
+Place her on an exotic tropical beach wearing a light white summer dress, a wide-brim straw hat, keep her face identity and realistic features unchanged. Warm golden sunlight, gentle ocean breeze, natural candid pose, shallow depth of field, high-end lifestyle photo.

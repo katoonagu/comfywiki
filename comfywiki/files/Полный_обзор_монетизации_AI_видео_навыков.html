@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Полный обзор монетизации AI-видео навыков</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.7;
+            color: #ffffff;
+            background: #0a0e27;
+            background-image:
+                linear-gradient(rgba(79, 172, 254, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(79, 172, 254, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(10, 14, 27, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(79, 172, 254, 0.1);
+            overflow: hidden;
+            animation: fadeIn 0.6s ease-in;
+            border: 1px solid rgba(79, 172, 254, 0.3);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .header {
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.2) 0%, rgba(79, 172, 254, 0.1) 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 2px solid rgba(79, 172, 254, 0.4);
+            box-shadow: 0 0 30px rgba(79, 172, 254, 0.2);
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(79, 172, 254, 0.15) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 0 20px rgba(79, 172, 254, 0.6);
+        }
+        .header p { font-size: 1.1em; opacity: 0.95; position: relative; z-index: 1; }
+        .guild-link {
+            display: inline-block;
+            color: #4facfe;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.3em;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+        .guild-link:hover { color: #ffffff; text-shadow: 0 0 10px rgba(79, 172, 254, 0.6); }
+        .content { padding: 50px 40px; }
+        h2 {
+            color: #ffffff;
+            font-size: 2em;
+            margin: 40px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(79, 172, 254, 0.4);
+            position: relative;
+            font-weight: 700;
+        }
+        h2::before { content: '▸'; color: #4facfe; margin-right: 10px; }
+        h3 { color: #ffffff; font-size: 1.5em; margin: 30px 0 15px 0; font-weight: 600; }
+        p { margin-bottom: 15px; text-align: justify; font-size: 1.05em; color: rgba(255, 255, 255, 0.9); }
+        ul { margin: 20px 0; padding-left: 25px; }
+        li { margin-bottom: 12px; }
+        .monetization-section {
+            background: rgba(10, 14, 27, 0.8);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 2px solid rgba(79, 172, 254, 0.4);
+            box-shadow: 0 0 20px rgba(79, 172, 254, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .monetization-section:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(79, 172, 254, 0.4); }
+        .monetization-section h3 { display: flex; align-items: center; }
+        .monetization-section h3::before { content: '•'; margin-right: 10px; font-size: 1.2em; }
+        .price-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(79, 172, 254, 0.3), rgba(79, 172, 254, 0.2));
+            color: #ffed4e;
+            padding: 6px 14px;
+            border-radius: 18px;
+            font-weight: 600;
+            margin: 0 6px 6px 0;
+            border: 1px solid rgba(255, 237, 78, 0.4);
+            font-size: 0.9em;
+        }
+        .highlight { color: #4facfe; font-weight: 600; }
+        .pros-cons {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .pros, .cons {
+            background: rgba(10, 14, 27, 0.6);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .pros {
+            border-left: 3px solid #4ade80;
+        }
+        .cons {
+            border-left: 3px solid #f87171;
+        }
+        .pros h4, .cons h4 {
+            color: #ffffff;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .pros h4 { color: #4ade80; }
+        .cons h4 { color: #f87171; }
+        .pros ul, .cons ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .pros li, .cons li {
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+        @media (max-width: 768px) {
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+        }
+        .sources-section {
+            background: rgba(10, 14, 27, 0.8);
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 12px;
+            border: 2px solid rgba(79, 172, 254, 0.4);
+            box-shadow: 0 0 20px rgba(79, 172, 254, 0.15);
+        }
+        .sources-category { margin-bottom: 20px; }
+        .sources-category-title {
+            color: #4facfe;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .sources-list { list-style: none; padding: 0; }
+        .sources-list li { margin: 8px 0; padding-left: 18px; position: relative; }
+        .sources-list li::before { content: '▸'; position: absolute; left: 0; color: #4facfe; }
+        .sources-list a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+        .sources-list a:hover { color: #4facfe; border-bottom-color: #4facfe; }
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(10, 14, 27, 0.8);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9em;
+            border-top: 1px solid rgba(79, 172, 254, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Полный обзор монетизации AI-видео навыков</h1>
+            <p>Практические модели заработка от услуг до платформ и контента</p>
+        </div>
+
+        <div class="content">
+            <p style="text-align: center; margin-bottom: 30px;">
+                <a href="https://aiguild.ru/" target="_blank" class="guild-link">Гильдия</a>
+            </p>
+
+            <h2>A. Услуги (Service-Based)</h2>
+            <div class="monetization-section">
+                <h3>A1. “Done-for-you” продакшн</h3>
+                <p>Классическая услуга «под ключ». Вы находите клиентов, собираете бриф, продюсируете, монтируете и отдаёте готовое видео.</p>
+                <p>
+                    <span class="price-tag">$500–5,000 / проект</span>
+                    <span class="price-tag">$50–150 / час</span>
+                </p>
+                <ul>
+                    <li>После согласования идеи выполняете продакшн: пробы → монтаж → сдача.</li>
+                    <li>Деньги получаете сразу после релиза ролика; быстрый цикл сделки.</li>
+                </ul>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ Плюсы</h4>
+                        <ul>
+                            <li>Не нужна аудитория; учитесь продажам и коммуникациям.</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>❌ Минусы</h4>
+                        <ul>
+                            <li>Нестабильный поток заказов, постоянный поиск клиентов.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="monetization-section">
+                <h3>A2. Ретейнер</h3>
+                <p>Долгосрочный контракт на фиксированное число видео в месяц. Клиент платит вперёд, а вы закрываете контент-план.</p>
+                <p>
+                    <span class="price-tag">$1,000–10,000 / мес</span>
+                    <span class="price-tag">$3–8K стартовый пакет</span>
+                </p>
+                <ul>
+                    <li>MRR-модель: доход предсказуем, легче планировать загрузку.</li>
+                    <li>5–7 клиентов можно обслуживать командой и делегировать часть работ.</li>
+                </ul>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ Плюсы</h4>
+                        <ul>
+                            <li>Стабильность, высокий LTV и доверие.</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>❌ Минусы</h4>
+                        <ul>
+                            <li>Обязательства по срокам и качеству, штрафы за задержки.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="monetization-section">
+                <h3>A3. White Label для агентств</h3>
+                <p>Вы становитесь «невидимой» студией для digital- или SMM-агентств, которые продают услуги под своим брендом.</p>
+                <p>
+                    <span class="price-tag">$2,000–20,000 / мес</span>
+                    <span class="price-tag">40–50% маржа агентства</span>
+                </p>
+                <ul>
+                    <li>Одно агентство может приносить $3–10K MRR; 3–5 партнёров дают $15–50K.</li>
+                    <li>Хороший повод нанять продюсеров и организовать собственную команду.</li>
+                </ul>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ Плюсы</h4>
+                        <ul>
+                            <li>Крупные B2B-суммы, длинные контракты.</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>❌ Минусы</h4>
+                        <ul>
+                            <li>Длинные продажи и зависимость от условий партнёра.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h2>B. Продукты (Product-Based)</h2>
+            <div class="monetization-section">
+                <h3>B1. Шаблоны и digital-наборы</h3>
+                <p>Промпты для Runway/Pika, шаблоны CapCut, пресеты, наборы «10 видео для ресторанов» и т.д.</p>
+                <p><span class="price-tag">$29–297</span></p>
+                <ul>
+                    <li>Создаются 1 раз (20–40 часов) и продаются множеству клиентов.</li>
+                    <li>Маркетплейсы: Gumroad, Creative Market, Etsy, собственный лэндинг.</li>
+                    <li>Эксперты отмечают потенциал пассивного дохода при стабильном трафике.</li>
+                </ul>
+            </div>
+
+            <div class="monetization-section">
+                <h3>B2. Membership / платное сообщество</h3>
+                <p>Подписчики получают ежемесячные шаблоны, видео, Q&A, доступ к chat/Discord.</p>
+                <p><span class="price-tag">$47–197 / мес</span></p>
+                <ul>
+                    <li>Платформы: Patreon, Circle.so, Kajabi, Telegram Premium.</li>
+                    <li>50 участников × $97 = ~$4.8K MRR; 200 × $97 = ~$19K MRR.</li>
+                    <li>Снижайте отток (5–10%/мес) регулярными апдейтами.</li>
+                </ul>
+            </div>
+
+            <div class="monetization-section">
+                <h3>B3. Онлайн-курсы</h3>
+                <p>От «AI Video Masterclass» до «Scale to $10K/мес». Форматы: beginner, intermediate, advanced.</p>
+                <p><span class="price-tag">$297–2,997</span></p>
+                <ul>
+                    <li>Платформы: Teachable, Podia, Kajabi, Gumroad.</li>
+                    <li>90%+ маржа после создания контента: 50×$497 = ~$24.8K за запуск.</li>
+                    <li>Требуются маркетинг и поддержка студентов.</li>
+                </ul>
+            </div>
+
+            <div class="monetization-section">
+                <h3>B4. Коучинг и менторство</h3>
+                <p>1-на-1 программы, групповые курсы, VIP-дни и мастермайнды.</p>
+                <p>
+                    <span class="price-tag">$200–500 / час</span>
+                    <span class="price-tag">$2,000–5,000 / VIP-день</span>
+                    <span class="price-tag">$3,000–10,000 / mastermind</span>
+                </p>
+                <ul>
+                    <li>Высокие гонорары при небольшом числе клиентов.</li>
+                    <li>Необходимо доказать экспертизу и удерживать энергию (риск выгорания).</li>
+                </ul>
+            </div>
+
+            <h2>C. Платформы (Platform-Based)</h2>
+            <div class="monetization-section">
+                <h3>C1. SaaS с AI-интеграцией</h3>
+                <p>Нишевой сервис для ресторанов, агентств недвижимости, e-commerce и т.д.</p>
+                <p><span class="price-tag">$29–299 / мес за пользователя</span></p>
+                <ul>
+                    <li>Стек: Bubble/FlutterFlow + Supabase/Firebase + AI API + Stripe.</li>
+                    <li>Цель: 100 клиентов × $99 = $9.9K MRR, churn <0.5%/мес.</li>
+                    <li>Высокие барьеры входа, но серьёзное масштабирование и возможный экзит.</li>
+                </ul>
+            </div>
+
+            <div class="monetization-section">
+                <h3>C2. Маркетплейс шаблонов</h3>
+                <p>Площадка, где создатели продают свои AI-ассеты, а вы берёте комиссию.</p>
+                <p><span class="price-tag">20–40% комиссия</span></p>
+                <ul>
+                    <li>Доп. монетизация: подписки для продавцов, продвижение, премиум-аккаунты.</li>
+                    <li>1,000 авторов и $50K GMV при 30% комиссии → $15K дохода.</li>
+                    <li>Сложный запуск (проблема «курицы и яйца»), но сильный сетевой эффект.</li>
+                </ul>
+            </div>
+
+            <h2>D. Контент (Content-Based)</h2>
+            <div class="monetization-section">
+                <h3>D1. YouTube AdSense</h3>
+                <p>Каналы без лица, образовательные и развлекательные форматы.</p>
+                <p><span class="price-tag">$500–5,000 / мес при 100K views</span></p>
+                <ul>
+                    <li>Средний CPM ~€2.5; в нишах финансы/бизнес — $15–50.</li>
+                    <li>Монетизация открывается при 1K подписчиков и 4K часов просмотра.</li>
+                </ul>
+            </div>
+
+            <div class="monetization-section">
+                <h3>D2. TikTok & Reels</h3>
+                <p>Creator Rewards, бонусы, донаты в LIVE.</p>
+                <ul>
+                    <li>Новая программа TikTok платит ~$0.4–1 за 1K просмотров.</li>
+                    <li>Главная ценность — трафик в воронку: на YouTube, продукты, консультации.</li>
+                </ul>
+            </div>
+
+            <div class="monetization-section">
+                <h3>D3. Спонсорство и бренд-деалы</h3>
+                <p>Платные интеграции в контент.</p>
+                <ul>
+                    <li>Instagram: ~$100–500 за 10K подписчиков; YouTube: $1K–5K за 100K.</li>
+                    <li>В B2B-темах ставки ×2–3. Нужна чёткая медиакит и доступность для брендов.</li>
+                </ul>
+            </div>
+
+            <div class="monetization-section">
+                <h3>D4. Партнёрские программы</h3>
+                <ul>
+                    <li>RunwayML, ElevenLabs, Jasper и десятки AI-сервисов платят 20–40% комиссию.</li>
+                    <li>Работает через обзоры, сравнения, email-дайджесты, страницы «инструменты, которые я использую».</li>
+                </ul>
+            </div>
+
+            <div class="monetization-section">
+                <h3>D5. AI-инфлюенсеры и виртуальные персонажи</h3>
+                <p>Цифровой ведущий или герой, который создаёт контент вместо вас.</p>
+                <ul>
+                    <li>Инструменты: HeyGen, D-ID, Runway, ElevenLabs.</li>
+                    <li>Рынок AI-инфлюенсеров ≈ $4.6B и растёт на 26% в год; кейсы Lil Miquela, Aitana Lopez.</li>
+                    <li>Монетизация: спонсоры, мерч, лицензирование, NFT.</li>
+                </ul>
+            </div>
+
+            <div class="monetization-section">
+                <h3>D6. Подписки на контент</h3>
+                <p>Patreon/Boosty/Fanvue/Telegram Premium с уровнями доступа.</p>
+                <ul>
+                    <li>Tier 1 ($9–19) — ранний доступ; Tier 2 ($29–49) — шаблоны и Q&A; Tier 3 ($99–199) — консультации.</li>
+                    <li>300 подписчиков (микс тарифов) дают ~$12K выручки до комиссий.</li>
+                </ul>
+            </div>
+
+            <div class="monetization-section">
+                <h3>D7. Персональное обучение / консалтинг</h3>
+                <p>Разовые консультации, VIP-дни, групповые коучинги и мастермайнды.</p>
+                <ul>
+                    <li>1-на-1: $150–500/час; VIP-день: $2–5K; mastermind: $5–15K за 6–12 мес.</li>
+                    <li>Высокая маржа, но требует энергии и подтверждённых кейсов.</li>
+                </ul>
+            </div>
+
+            <div class="monetization-section">
+                <h3>Комбинированная стратегия</h3>
+                <p>Лучшие авторы совмещают несколько моделей: курс + YouTube + шаблоны + консультации. Это снижает риски и создаёт мультиканальную воронку.</p>
+            </div>
+
+            <div class="sources-section">
+                <h3>Источники</h3>
+                <div class="sources-category">
+                    <div class="sources-category-title">Услуги и ставки</div>
+                    <ul class="sources-list">
+                        <li><a href="https://www.cutjamm.com/blog/video-editing-rates" target="_blank">Freelance Video Editing Rates 2025</a></li>
+                        <li><a href="https://www.outlivecommercial.com/video-production-retainer" target="_blank">Video Production Retainer</a></li>
+                        <li><a href="https://www.videosupply.com/white-label" target="_blank">White Label Video Production</a></li>
+                    </ul>
+                </div>
+                <div class="sources-category">
+                    <div class="sources-category-title">Продукты и подписки</div>
+                    <ul class="sources-list">
+                        <li><a href="https://www.miracamp.com/learn/capcut/how-to-make-money" target="_blank">How to Make Money with CapCut</a></li>
+                        <li><a href="https://www.heightsplatform.com/blog/how-to-create-a-membership-site-generate-recurring-revenue" target="_blank">Membership Revenue</a></li>
+                        <li><a href="https://www.starterstory.com/ideas/online-courses-business-cee78f05-c816-4bc3-a8f4-26a8aa85489d/profitability" target="_blank">Online Courses Profitability</a></li>
+                    </ul>
+                </div>
+                <div class="sources-category">
+                    <div class="sources-category-title">Коучинг и консалтинг</div>
+                    <ul class="sources-list">
+                        <li><a href="https://quenza.com/blog/career-coach-hourly-rates-qualifications-cost-considerations/" target="_blank">Career Coach Hourly Rates</a></li>
+                    </ul>
+                </div>
+                <div class="sources-category">
+                    <div class="sources-category-title">Платформы</div>
+                    <ul class="sources-list">
+                        <li><a href="https://www.venasolutions.com/blog/saas-churn-rate" target="_blank">SaaS Churn Benchmarks</a></li>
+                    </ul>
+                </div>
+                <div class="sources-category">
+                    <div class="sources-category-title">Контент-монетизация</div>
+                    <ul class="sources-list">
+                        <li><a href="https://isthischannelmonetized.com/data/youtube-cpm/" target="_blank">YouTube CPM 2025</a></li>
+                        <li><a href="https://www.lenostube.com/en/youtube-cpm-rpm-rates/" target="_blank">CPM & RPM Niches</a></li>
+                        <li><a href="https://support.google.com/youtube/answer/72851" target="_blank">YouTube Partner Program</a></li>
+                        <li><a href="https://riverside.com/blog/how-much-does-tiktok-pay" target="_blank">TikTok Creator Rewards</a></li>
+                        <li><a href="https://influencermarketinghub.com/tiktok-live-gifts/" target="_blank">TikTok Live Gifts</a></li>
+                        <li><a href="https://hypeauditor.com/free-tools/instagram-pricing-calculator/" target="_blank">Instagram Pricing</a></li>
+                        <li><a href="https://www.shopify.com/blog/influencer-pricing" target="_blank">Influencer Pricing 2026</a></li>
+                        <li><a href="https://blog.hubspot.com/marketing/best-affiliate-programs" target="_blank">Affiliate Programs</a></li>
+                        <li><a href="https://www.zebracat.ai/post/ai-influencer" target="_blank">AI Influencer Economics</a></li>
+                        <li><a href="https://medium.com/@readosage/how-creators-are-earning-on-fanvue-and-why-its-growing-fast-032175d98057" target="_blank">Fanvue Earnings</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 AI Guild | Генеративный контент</p>
+        </div>
+    </div>
+</body>
+</html>
